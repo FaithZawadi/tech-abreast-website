@@ -1,0 +1,20 @@
+# Runs the site on the shared "proxy" Docker network, with no public ports.
+# The existing gateway container forwards tech-abreast.com to
+# http://tech-abreast-website:3000
+services:
+  web:
+    build: .
+    image: tech-abreast-website:latest
+    container_name: tech-abreast-website
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      # Optional: forward contact-form enquiries (Formspree, Zapier, Make, Slack…)
+      # - CONTACT_WEBHOOK_URL=https://…
+    mem_limit: 256m
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
