@@ -41,7 +41,19 @@ All text lives in **`lib/content.ts`**: services, industries, stats, values, the
 - `public/logo-mark.png` is the logo's wing mark.
 - The architecture diagrams (`components/illustrations/`) are animated SVGs in the brand colours.
 
-## Hosting on a VPS (Ubuntu)
+## Hosting with Docker (shared VPS)
+
+`Dockerfile` builds a small, self-contained image. `docker-compose.yml` runs it as
+`tech-abreast-website` on the existing external `proxy` network without publishing
+any ports, so it can sit behind a gateway that already owns ports 80/443. Point the
+gateway at `http://tech-abreast-website:3000`.
+
+```bash
+docker compose up -d --build     # first deploy and every update
+docker compose logs -f           # view logs
+```
+
+## Hosting on a plain VPS (no existing proxy)
 
 Needed files: `ecosystem.config.js` (PM2), `deploy/nginx.conf` and `deploy/deploy.sh`.
 
