@@ -3,8 +3,14 @@ import Image from 'next/image'
 import { Eye, Target } from 'lucide-react'
 import { CtaBand, Marquee, PageHero, Reveal, SectionHeading } from '@/components/ui'
 import { certifications, values, whyUs } from '@/lib/content'
+import { pageMeta } from '@/lib/seo'
 
-export const metadata: Metadata = { title: 'About Us' }
+export const metadata: Metadata = pageMeta({
+  title: 'About Us',
+  description:
+    'Technology Abreast is a Kenyan ICT company putting people before technology — ITIL, PMP, CCNA and security-certified consultants delivering ICT strategy, managed services and digital solutions.',
+  path: '/about',
+})
 
 export default function AboutPage() {
   return (

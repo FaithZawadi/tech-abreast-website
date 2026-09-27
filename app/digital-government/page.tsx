@@ -5,19 +5,44 @@ import EALayers from '@/components/illustrations/EALayers'
 import InteropHub from '@/components/illustrations/InteropHub'
 import PhaseTimeline from '@/components/PhaseTimeline'
 import { CtaBand, PageHero, Reveal, SectionHeading } from '@/components/ui'
-import { assignments, eaDeliverables, eaObjectives, eaTeam, eaToolkit } from '@/lib/content'
+import JsonLd from '@/components/JsonLd'
+import { assignments, eaDeliverables, eaFaqs, eaObjectives, eaTeam, eaToolkit } from '@/lib/content'
+import { breadcrumbLd, pageMeta, serviceLd } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Enterprise Architecture & Digital Government',
+export const metadata: Metadata = pageMeta({
+  title: 'Government Enterprise Architecture & Digital Government',
   description:
-    'Government Enterprise Architecture Frameworks (GEAF), interoperability, digitalisation roadmaps and capacity building — TOGAF and Zachman aligned.',
-}
+    'TOGAF- and Zachman-aligned Government Enterprise Architecture Frameworks (GEAF), interoperability standards, e-government roadmaps and capacity building for public institutions.',
+  path: '/digital-government',
+})
 
 const objectiveIcons = [Accessibility, Users, ScrollText, Network, Lock]
 
 export default function DigitalGovernmentPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          serviceLd({
+            name: 'Government Enterprise Architecture & Digital Government',
+            description: 'Government Enterprise Architecture Frameworks, interoperability standards, digitalisation roadmaps and capacity building.',
+            path: '/digital-government',
+          }),
+          breadcrumbLd([
+            { name: 'Home', path: '/' },
+            { name: 'Digital Government', path: '/digital-government' },
+          ]),
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: eaFaqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]}
+      />
       <PageHero
         eyebrow="Enterprise architecture · Digital government"
         title={<>One architecture. <span className="text-wing">Connected government.</span></>}
@@ -248,6 +273,30 @@ export default function DigitalGovernmentPage() {
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-cream py-24">
+        <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.5fr]">
+          <SectionHeading
+            eyebrow="FAQ"
+            title="Enterprise architecture, answered"
+            text="Common questions from ministries, agencies and development partners."
+          />
+          <div className="space-y-3">
+            {eaFaqs.map((f) => (
+              <details key={f.q} className="group rounded-2xl bg-white p-6 open:shadow-lg">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-orange/10 text-lg text-brand-orange transition-transform group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-4 leading-relaxed text-ink/70">{f.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

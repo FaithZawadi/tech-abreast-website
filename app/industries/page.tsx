@@ -4,11 +4,14 @@ import Link from 'next/link'
 import { AlertTriangle, ArrowRight, CheckCircle2 } from 'lucide-react'
 import { CtaBand, PageHero, Reveal } from '@/components/ui'
 import { industries, services } from '@/lib/content'
+import { pageMeta } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Industries',
-  description: 'How Technology Abreast supports the public sector, banking, healthcare, education, hospitality, retail, engineering and construction.',
-}
+export const metadata: Metadata = pageMeta({
+  title: 'Industries We Serve',
+  description:
+    'ICT solutions for the public sector & NGOs, banking, healthcare, education, hospitality, retail, manufacturing, engineering and construction in Kenya and East Africa.',
+  path: '/industries',
+})
 
 const serviceTitle = (slug: string) => services.find((s) => s.slug === slug)?.title ?? slug
 

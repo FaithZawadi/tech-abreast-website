@@ -1,8 +1,14 @@
 import type { Metadata } from 'next'
 import ServicesExplorer from '@/components/ServicesExplorer'
 import { CtaBand, PageHero } from '@/components/ui'
+import { pageMeta } from '@/lib/seo'
 
-export const metadata: Metadata = { title: 'Services & Solutions' }
+export const metadata: Metadata = pageMeta({
+  title: 'ICT Services & Solutions',
+  description:
+    'Managed ICT services, strategic consultancy, enterprise architecture, cybersecurity, disaster recovery, software & AI, BI, VoIP and more from Technology Abreast, Nairobi.',
+  path: '/services',
+})
 
 export default function ServicesPage() {
   return (

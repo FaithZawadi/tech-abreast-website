@@ -3,7 +3,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 import { CtaBand, PageHero, Reveal, ServiceIcon } from '@/components/ui'
+import JsonLd from '@/components/JsonLd'
 import { services } from '@/lib/content'
+import { breadcrumbLd, pageMeta, serviceLd } from '@/lib/seo'
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }))
@@ -11,7 +13,12 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const s = services.find((x) => x.slug === params.slug)
-  return s ? { title: s.title, description: s.summary } : {}
+  if (!s) return {}
+  return pageMeta({
+    title: s.title,
+    description: `${s.summary} ${s.kind === 'Service' ? 'ICT services' : 'ICT solutions'} from Technology Abreast, Nairobi, Kenya.`,
+    path: `/services/${s.slug}`,
+  })
 }
 
 export default function ServicePage({ params }: { params: { slug: string } }) {
@@ -23,6 +30,16 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          serviceLd({ name: s.title, description: s.intro, path: `/services/${s.slug}` }),
+          breadcrumbLd([
+            { name: 'Home', path: '/' },
+            { name: 'Services', path: '/services' },
+            { name: s.title, path: `/services/${s.slug}` },
+          ]),
+        ]}
+      />
       <PageHero eyebrow={s.kind} title={s.title} text={s.intro}>
         <div className="mt-10 flex flex-wrap gap-4">
           <Link href={`/contact?topic=${s.slug}`} className="btn-primary">

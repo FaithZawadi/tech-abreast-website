@@ -3,8 +3,14 @@ import { Clock, Inbox, Mail, MapPin, Phone } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 import { PageHero, Reveal } from '@/components/ui'
 import { company } from '@/lib/content'
+import { pageMeta } from '@/lib/seo'
 
-export const metadata: Metadata = { title: 'Contact Us' }
+export const metadata: Metadata = pageMeta({
+  title: 'Contact Us',
+  description:
+    'Talk to Technology Abreast — Birdi Complex, Mombasa Road, Nairobi. Call 0722 586 313 or email info@tech-abreast.com for ICT consultancy, managed services or a proposal.',
+  path: '/contact',
+})
 
 export default function ContactPage({ searchParams }: { searchParams: { topic?: string } }) {
   const details = [
