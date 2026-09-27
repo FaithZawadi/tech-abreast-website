@@ -4,19 +4,21 @@ const config: Config = {
   content: [
     './app/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './lib/**/*.{js,ts}',
   ],
   theme: {
     extend: {
       fontFamily: {
-        mono: ['JetBrains Mono', 'monospace'],
-        sans: ['Space Grotesk', 'sans-serif'],
+        sans: ['Poppins', 'system-ui', 'sans-serif'],
       },
       colors: {
+        ink: { DEFAULT: '#16150F', 2: '#1F1D16', 3: '#2A281F' },
+        cream: '#F7F5EF',
         brand: {
           orange: '#F26522',
-          green: '#22c55e',
-          navy: '#020c14',
-          panel: '#071520',
+          amber: '#F59E2B',
+          olive: '#8B9B2A',
+          lime: '#B7C43A',
         },
       },
     },
