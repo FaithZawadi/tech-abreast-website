@@ -267,15 +267,162 @@ export const services: Service[] = [
   },
 ]
 
-export const industries = [
-  { slug: 'public-sector', title: 'Public Sector & NGOs', image: '/images/industries/public-sector.jpg', text: 'Enterprise architecture, e-government, ICT governance and managed services for ministries, agencies and development partners.' },
-  { slug: 'banking', title: 'Banking & Finance', image: '/images/industries/banking.jpg', text: 'Secure, always-on infrastructure, security audits and BI for regulated financial institutions.' },
-  { slug: 'healthcare', title: 'Healthcare', image: '/images/industries/healthcare.jpg', text: 'Reliable systems, data protection and integration for patient-centred care.' },
-  { slug: 'education', title: 'Education', image: '/images/industries/education.jpg', text: 'Campus networks, digital learning platforms and managed support.' },
-  { slug: 'travel', title: 'Travel & Hospitality', image: '/images/industries/travel.jpg', text: 'Guest-facing systems, VoIP and multi-site connectivity that never sleep.' },
-  { slug: 'retail', title: 'Retail & Manufacturing', image: '/images/industries/retail.jpg', text: 'POS, asset management, analytics and automation from shop floor to head office.' },
-  { slug: 'engineering', title: 'Engineering', image: '/images/industries/engineering.jpg', text: 'Industrial-grade infrastructure, data platforms and systems integration.' },
-  { slug: 'construction', title: 'Construction', image: '/images/industries/construction.jpg', text: 'Site connectivity, project systems and IT relocations as projects move.' },
+export type Industry = {
+  slug: string
+  title: string
+  image: string
+  text: string
+  challenges: string[]
+  solutions: string[]
+  services: string[]
+}
+
+export const industries: Industry[] = [
+  {
+    slug: 'public-sector',
+    title: 'Public Sector & NGOs',
+    image: '/images/industries/public-sector.jpg',
+    text: 'Enterprise architecture, e-government, ICT governance and managed services for ministries, agencies and development partners.',
+    challenges: [
+      'Siloed systems that cannot share data across ministries and agencies',
+      'Donor-funded programmes with strict reporting, fiduciary and safeguard requirements',
+      'Limited in-house capacity to sustain new digital platforms after handover',
+    ],
+    solutions: [
+      'Government Enterprise Architecture Frameworks and interoperability standards',
+      'E-service digitisation roadmaps, business process re-engineering and one-stop-shop models',
+      'ICT strategy, governance and policy aligned to national priorities',
+      'Technical specifications, costed infrastructure plans and draft RFPs for implementation',
+      'Training, mentorship and helpdesk support that build lasting institutional capacity',
+    ],
+    services: ['enterprise-architecture', 'strategic-consultancy', 'cybersecurity-risk', 'managed-ict-services'],
+  },
+  {
+    slug: 'banking',
+    title: 'Banking & Finance',
+    image: '/images/industries/banking.jpg',
+    text: 'Secure, always-on infrastructure, security audits and BI for regulated financial institutions.',
+    challenges: [
+      'Zero tolerance for downtime in core banking and payment systems',
+      'Growing cyber threats and regulatory scrutiny of data protection',
+      'Data spread across branches and systems, slowing decisions',
+    ],
+    solutions: [
+      'ISO 27001-based security management, risk assessments and independent security audits',
+      'Disaster recovery, real-time data backup and managed failover',
+      'Business intelligence dashboards and data lakes for consolidated performance views',
+      'Managed network, server and service desk operations to ITIL/ISO 20000 standards',
+    ],
+    services: ['cybersecurity-risk', 'technical-consultancy', 'bi-data-analytics', 'managed-ict-services'],
+  },
+  {
+    slug: 'healthcare',
+    title: 'Healthcare',
+    image: '/images/industries/healthcare.jpg',
+    text: 'Reliable systems, data protection and integration for patient-centred care.',
+    challenges: [
+      'Clinical and administrative systems that do not talk to each other',
+      'Sensitive patient data that must be protected and always available',
+      'Round-the-clock operations with little room for IT disruption',
+    ],
+    solutions: [
+      'Systems integration and APIs connecting records, labs, pharmacy and billing',
+      'Data protection, privacy-by-design controls and security audits',
+      '24x7x365 managed support and service desk for clinical environments',
+      'Backup and disaster recovery that keep critical systems running',
+    ],
+    services: ['software-ai', 'cybersecurity-risk', 'managed-ict-services', 'technical-consultancy'],
+  },
+  {
+    slug: 'education',
+    title: 'Education',
+    image: '/images/industries/education.jpg',
+    text: 'Campus networks, digital learning platforms and managed support.',
+    challenges: [
+      'Campus networks under pressure from thousands of connected devices',
+      'Moving teaching, administration and records onto digital platforms',
+      'Tight budgets that demand clear value from every ICT investment',
+    ],
+    solutions: [
+      'Campus LAN/WAN design, management and connectivity',
+      'Learning and administration platforms, integrated with student records',
+      'ICT asset management and licence compliance across departments',
+      'Cost analysis and ICT strategy that get more value from existing spend',
+    ],
+    services: ['managed-ict-services', 'software-ai', 'ict-asset-management', 'strategic-consultancy'],
+  },
+  {
+    slug: 'travel',
+    title: 'Travel & Hospitality',
+    image: '/images/industries/travel.jpg',
+    text: 'Guest-facing systems, VoIP and multi-site connectivity that never sleep.',
+    challenges: [
+      'Guest-facing systems that must work every hour of every day',
+      'Multiple properties and branches to connect and support',
+      'Competing for bookings and loyalty online',
+    ],
+    solutions: [
+      'Regional outsourcing and remote support for multi-site operations',
+      'Open-platform VoIP phone systems with unlimited extensions',
+      'Domains, secure hosting and websites that turn visitors into guests',
+      'Social media management that builds brand awareness and loyalty',
+    ],
+    services: ['managed-ict-services', 'voip-phone-systems', 'domain-services', 'social-media-management'],
+  },
+  {
+    slug: 'retail',
+    title: 'Retail & Manufacturing',
+    image: '/images/industries/retail.jpg',
+    text: 'POS, asset management, analytics and automation from shop floor to head office.',
+    challenges: [
+      'Point-of-sale, stock and production data held in separate systems',
+      'Large estates of hardware and software that are hard to track',
+      'Pressure to automate processes and cut operating costs',
+    ],
+    solutions: [
+      'Business intelligence dashboards linking sales, stock and production',
+      'ICT asset management for hardware, software and licence compliance',
+      'Process automation and custom business software',
+      'Managed infrastructure and support from shop floor to head office',
+    ],
+    services: ['bi-data-analytics', 'ict-asset-management', 'software-ai', 'managed-ict-services'],
+  },
+  {
+    slug: 'engineering',
+    title: 'Engineering',
+    image: '/images/industries/engineering.jpg',
+    text: 'Industrial-grade infrastructure, data platforms and systems integration.',
+    challenges: [
+      'Design, project and operational systems that need to share data',
+      'Large technical files that demand reliable storage and backup',
+      'Ageing servers and applications due for upgrade or migration',
+    ],
+    solutions: [
+      'Systems integration across engineering, project and finance applications',
+      'Server and IT upgrades, migration and secure decommissioning',
+      'Real-time data backup and disaster recovery for critical files',
+      'Data platforms and analytics for operational insight',
+    ],
+    services: ['software-ai', 'technical-consultancy', 'bi-data-analytics', 'managed-ict-services'],
+  },
+  {
+    slug: 'construction',
+    title: 'Construction',
+    image: '/images/industries/construction.jpg',
+    text: 'Site connectivity, project systems and IT relocations as projects move.',
+    challenges: [
+      'Temporary sites that need connectivity fast, then need to move',
+      'Equipment and assets spread across many locations',
+      'Project teams that need secure access to head-office systems',
+    ],
+    solutions: [
+      'IT office moves and site relocations with minimum downtime',
+      'Connectivity and VPN setup linking sites to head office',
+      'ICT asset tracking across sites and projects',
+      'Regional outsourcing and remote support for site teams',
+    ],
+    services: ['it-office-moves', 'ict-asset-management', 'managed-ict-services', 'technical-consultancy'],
+  },
 ]
 
 // ─── Digital Government / Enterprise Architecture practice ───────────────
