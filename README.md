@@ -40,3 +40,31 @@ All text lives in **`lib/content.ts`**: services, industries, stats, values, the
 - `public/images/industries/*.jpg` are cropped from the original industries collage.
 - `public/logo-mark.png` is the logo's wing mark.
 - The architecture diagrams (`components/illustrations/`) are animated SVGs in the brand colours.
+
+## Hosting on a VPS (Ubuntu)
+
+Needed files: `ecosystem.config.js` (PM2), `deploy/nginx.conf` and `deploy/deploy.sh`.
+
+```bash
+# 1. Server packages
+sudo apt update && sudo apt install -y git nginx certbot python3-certbot-nginx
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs
+sudo npm install -g pm2
+
+# 2. Code
+sudo mkdir -p /var/www && sudo chown $USER /var/www && cd /var/www
+git clone https://github.com/FaithZawadi/tech-abreast-website.git
+cd tech-abreast-website
+./deploy/deploy.sh            # installs, builds and starts on port 3000
+pm2 startup                   # run the command it prints, so the site restarts on reboot
+
+# 3. Nginx + HTTPS (point the domain's A records at the VPS first)
+sudo cp deploy/nginx.conf /etc/nginx/sites-available/tech-abreast
+sudo ln -s /etc/nginx/sites-available/tech-abreast /etc/nginx/sites-enabled/
+sudo rm -f /etc/nginx/sites-enabled/default
+sudo nginx -t && sudo systemctl reload nginx
+sudo certbot --nginx -d tech-abreast.com -d www.tech-abreast.com
+```
+
+To publish later changes, push to `main` and run `./deploy/deploy.sh` on the server.
