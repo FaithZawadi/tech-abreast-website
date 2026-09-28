@@ -15,59 +15,60 @@ import path from 'node:path'
 
 const ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 const OUT = path.join(ROOT, 'stock-candidates')
-const PER_QUERY = 4
+const PER_QUERY = 4 // 4 photos × 4–5 search terms ≈ 16–20 options per slot
 
 // Each slot: where the photo goes on the site, the shape it needs, and search terms.
+// Search terms deliberately feature Black African professionals and settings.
 const SLOTS = {
   hero: {
     file: 'public/images/hero.jpg', orientation: 'landscape', width: 2400,
     label: 'Home hero & page banners (landscape)',
-    queries: ['african software engineers office', 'data center technician', 'network operations center team', 'african business technology meeting'],
+    queries: ['black african software engineers office', 'african it professionals working computers', 'black data center technician server room', 'black business team technology meeting', 'african network engineer'],
   },
   team: {
     file: 'public/images/team.jpg', orientation: 'portrait', width: 1600,
     label: 'About / “Who we are” (portrait)',
-    queries: ['african business team office', 'black professionals meeting laptop', 'african consultants collaboration'],
+    queries: ['black african business team office', 'black professionals meeting laptop', 'african consultants collaboration office', 'black colleagues smiling office'],
   },
   'public-sector': {
     file: 'public/images/industries/public-sector.jpg', orientation: 'square', width: 1200,
     label: 'Public Sector & NGOs',
-    queries: ['nairobi city skyline', 'african government meeting', 'african conference hall delegates'],
+    queries: ['african government officials meeting', 'black african conference delegates', 'african civil servants office computer', 'black leaders boardroom meeting africa'],
   },
   banking: {
     file: 'public/images/industries/banking.jpg', orientation: 'square', width: 1200,
     label: 'Banking & Finance',
-    queries: ['african banker laptop', 'finance professional trading screens', 'mobile money payment africa'],
+    queries: ['black african banker laptop', 'black finance professional office screens', 'african woman mobile money phone', 'black businessman financial charts'],
   },
   healthcare: {
     file: 'public/images/industries/healthcare.jpg', orientation: 'square', width: 1200,
     label: 'Healthcare',
-    queries: ['african doctor tablet', 'african nurse hospital technology', 'black doctor digital health'],
+    queries: ['black african doctor tablet', 'african nurse hospital computer', 'black doctor digital health technology', 'african healthcare worker laptop'],
   },
   education: {
     file: 'public/images/industries/education.jpg', orientation: 'square', width: 1200,
     label: 'Education',
-    queries: ['african university students laptop', 'african students computer lab', 'black student studying laptop'],
+    queries: ['black african university students laptop', 'african students computer lab', 'black student studying laptop', 'african teacher classroom technology'],
   },
   travel: {
     file: 'public/images/industries/travel.jpg', orientation: 'square', width: 1200,
     label: 'Travel & Hospitality',
-    queries: ['hotel reception africa', 'african airport travel', 'safari lodge reception'],
+    queries: ['black hotel receptionist africa', 'african airport traveller black woman', 'black hospitality staff hotel lobby', 'african tourism guide tablet'],
   },
   retail: {
     file: 'public/images/industries/retail.jpg', orientation: 'square', width: 1200,
     label: 'Retail & Manufacturing',
-    queries: ['african shop cashier', 'african supermarket checkout', 'african small business owner shop'],
+    queries: ['black african shop cashier', 'african supermarket checkout black woman', 'black small business owner shop africa', 'african market vendor mobile payment'],
   },
   engineering: {
     file: 'public/images/industries/engineering.jpg', orientation: 'square', width: 1200,
     label: 'Engineering',
-    queries: ['african engineer factory tablet', 'black engineer industrial', 'african technician control room'],
+    queries: ['black african engineer factory tablet', 'black engineer industrial plant', 'african technician control room', 'black female engineer hard hat'],
   },
   construction: {
     file: 'public/images/industries/construction.jpg', orientation: 'square', width: 1200,
     label: 'Construction',
-    queries: ['african construction engineers site', 'construction site engineers plans', 'black construction worker hard hat'],
+    queries: ['black african construction engineers site', 'black construction worker hard hat tablet', 'african architect construction site plans', 'black engineers building site africa'],
   },
 }
 
