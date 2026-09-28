@@ -5,26 +5,33 @@ import { company, services } from './content'
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://tech-abreast.com').replace(/\/$/, '')
 
 export const defaultDescription =
-  'Technology Abreast is a Nairobi ICT consultancy delivering managed ICT services, ICT strategy, enterprise architecture, digital government, cybersecurity and business intelligence across Kenya and East Africa.'
+  'Technology Abreast Limited is an ICT company in Nairobi, Kenya: managed IT services, IT support, ICT consultancy, cybersecurity, enterprise architecture and digital government solutions across East Africa.'
 
 export const keywords = [
+  'Technology Abreast',
+  'Tech Abreast',
+  'ICT company in Nairobi',
   'ICT consultancy Kenya',
-  'managed ICT services Nairobi',
+  'IT company Kenya',
+  'managed IT services Nairobi',
+  'managed IT services Kenya',
+  'IT support Nairobi',
   'IT outsourcing Kenya',
-  'enterprise architecture',
+  'ICT consultants Kenya',
+  'enterprise architecture Kenya',
   'government enterprise architecture framework',
-  'digital government',
+  'digital government consultancy Africa',
   'e-government consultancy',
-  'TOGAF consultants',
+  'TOGAF consultants Africa',
   'interoperability framework',
   'ICT strategy and governance',
   'cybersecurity audit Kenya',
-  'ISO 27001',
-  'ITIL service desk',
+  'data protection compliance Kenya',
+  'ISO 27001 consultants Kenya',
   'disaster recovery Kenya',
   'business intelligence Kenya',
   'VoIP phone systems Nairobi',
-  'Technology Abreast',
+  'IT office relocation Nairobi',
 ]
 
 export const shareImage = { url: '/og.jpg', width: 1200, height: 630, alt: 'Technology Abreast — Digital Business Enablers' }
@@ -56,7 +63,8 @@ export const organizationLd = {
   '@type': ['Organization', 'ProfessionalService'],
   '@id': `${siteUrl}/#organization`,
   name: company.name,
-  alternateName: company.short,
+  alternateName: ['Tech Abreast', 'Technology Abreast', 'Technology Abreast Ltd', 'tech-abreast.com'],
+  legalName: company.name,
   slogan: company.tagline,
   description: defaultDescription,
   url: siteUrl,

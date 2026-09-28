@@ -7,6 +7,7 @@ import EALayers from '@/components/illustrations/EALayers'
 import { ArrowLink, Counter, CtaBand, Marquee, Reveal, SectionHeading, ServiceIcon } from '@/components/ui'
 import { certifications, eaToolkit, industries, services, stats, whyUs } from '@/lib/content'
 import { accent } from '@/lib/accent'
+import { articles } from '@/lib/insights'
 
 export default function Home() {
   const featured = services.filter((s) => s.featured)
@@ -167,6 +168,29 @@ export default function Home() {
                     <span className={`mb-3 block h-1 w-8 rounded-full transition-all duration-500 group-hover:w-16 ${accent(i + Math.floor(i / 4)).bg}`} />
                     <h3 className="font-semibold text-white">{ind.title}</h3>
                   </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Latest insights */}
+      <section className="py-24">
+        <div className="container-x">
+          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <SectionHeading eyebrow="Insights" title="Guidance from our consultants" />
+            <Reveal><ArrowLink href="/insights">All insights</ArrowLink></Reveal>
+          </div>
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {articles.slice(0, 3).map((a, i) => (
+              <Reveal key={a.slug} delay={i * 0.08}>
+                <Link href={`/insights/${a.slug}`} className="card-hover group flex h-full flex-col rounded-3xl border border-fg/10 p-7">
+                  <span className={`text-xs font-bold uppercase tracking-widest ${accent(i).text}`}>{a.category}</span>
+                  <h3 className="mt-3 flex-1 text-lg font-bold leading-snug group-hover:text-brand-orange">{a.title}</h3>
+                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-fg/60">
+                    {a.readMins} min read <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
+                  </span>
                 </Link>
               </Reveal>
             ))}

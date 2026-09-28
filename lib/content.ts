@@ -23,6 +23,7 @@ export const nav = [
   { label: 'Services', href: '/services' },
   { label: 'Digital Government', href: '/digital-government' },
   { label: 'Industries', href: '/industries' },
+  { label: 'Insights', href: '/insights' },
   { label: 'Contact', href: '/contact' },
 ]
 

@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { services } from '@/lib/content'
+import { articles } from '@/lib/insights'
 import { siteUrl } from '@/lib/seo'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/services', priority: 0.9, freq: 'monthly' },
     { path: '/about', priority: 0.8, freq: 'monthly' },
     { path: '/industries', priority: 0.8, freq: 'monthly' },
+    { path: '/insights', priority: 0.8, freq: 'weekly' },
     { path: '/contact', priority: 0.7, freq: 'monthly' },
   ]
   return [
@@ -24,6 +26,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'monthly' as const,
       priority: s.featured ? 0.8 : 0.6,
+    })),
+    ...articles.map((a) => ({
+      url: `${siteUrl}/insights/${a.slug}`,
+      lastModified: new Date(a.date),
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
     })),
   ]
 }

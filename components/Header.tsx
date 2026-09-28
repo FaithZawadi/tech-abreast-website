@@ -61,7 +61,7 @@ export default function Header() {
   }
 
   const linkClass = (href: string) =>
-    `relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-colors ${
+    `relative flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
       solid ? 'text-fg/80 hover:text-brand-orange' : 'text-white/85 hover:text-white'
     } ${isActive(href) ? (solid ? '!text-brand-orange' : '!text-white') : ''}`
 
@@ -93,8 +93,8 @@ export default function Header() {
         <div className="container-x flex h-20 items-center justify-between">
           <Logo dark={solid} />
 
-          <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
-            {nav.map((item) =>
+          <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Main">
+            {nav.filter((item) => item.href !== '/').map((item) =>
               item.href === '/services' ? (
                 <div
                   key={item.href}
@@ -106,7 +106,7 @@ export default function Header() {
                     <Link href={item.href} className={linkClass(item.href)}>
                       {item.label}
                       {isActive(item.href) && (
-                        <motion.span layoutId="nav-underline" className="bg-wing absolute inset-x-4 -bottom-0.5 h-[3px] rounded-full" />
+                        <motion.span layoutId="nav-underline" className="bg-wing absolute inset-x-3 -bottom-0.5 h-[3px] rounded-full" />
                       )}
                     </Link>
                     <button
@@ -164,18 +164,18 @@ export default function Header() {
                 <Link key={item.href} href={item.href} className={linkClass(item.href)}>
                   {item.label}
                   {isActive(item.href) && (
-                    <motion.span layoutId="nav-underline" className="bg-wing absolute inset-x-4 -bottom-0.5 h-[3px] rounded-full" />
+                    <motion.span layoutId="nav-underline" className="bg-wing absolute inset-x-3 -bottom-0.5 h-[3px] rounded-full" />
                   )}
                 </Link>
               ),
             )}
             <ThemeToggle className={`ml-2 ${solid ? 'text-fg hover:bg-fg/5' : 'text-white hover:bg-white/10'}`} />
-            <Link href="/contact?topic=proposal" className="btn-primary ml-3 !px-5 !py-2.5">
+            <Link href="/contact?topic=proposal" className="btn-primary ml-3 whitespace-nowrap !px-5 !py-2.5">
               Request a Proposal
             </Link>
           </nav>
 
-          <div className="flex items-center gap-1 lg:hidden">
+          <div className="flex items-center gap-1 xl:hidden">
             <ThemeToggle className={solid ? 'text-fg' : 'text-white'} />
             <button
               aria-label={open ? 'Close menu' : 'Open menu'}
@@ -196,7 +196,7 @@ export default function Header() {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
-            className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10 bg-ink px-4 pb-8 pt-2 lg:hidden"
+            className="max-h-[calc(100vh-5rem)] overflow-y-auto border-t border-white/10 bg-ink px-4 pb-8 pt-2 xl:hidden"
           >
             {nav.map((item) =>
               item.href === '/services' ? (
