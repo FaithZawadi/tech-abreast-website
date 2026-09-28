@@ -428,120 +428,217 @@ export const industries: Industry[] = [
 ]
 
 // ─── Digital Government / Enterprise Architecture practice ───────────────
+// Written as a general capability, not tied to any single project or tender.
+
+export const eaClients = [
+  'Ministries, departments & agencies',
+  'County, municipal & local governments',
+  'Regulators & state corporations',
+  'Development-partner-funded programmes',
+  'Regional & intergovernmental bodies',
+]
+
+export const eaOfferings = [
+  { icon: 'layers', title: 'Enterprise Architecture Frameworks', text: 'National and institutional EA frameworks (GEAF/NEA): principles, reference models, standards and governance across business, data, application, technology and security.' },
+  { icon: 'share', title: 'Interoperability & Data Exchange', text: 'Interoperability frameworks across legal, organisational, semantic and technical layers, with API standards, data-sharing agreements and secure exchange platforms.' },
+  { icon: 'globe', title: 'Digital Public Infrastructure', text: 'Architecture and roadmaps for the shared rails of digital government: digital identity, payments, data exchange and consent — designed on open standards.' },
+  { icon: 'compass', title: 'Digital Government Strategy & Roadmaps', text: 'E-government and digital transformation strategies, prioritised investment roadmaps and implementation calendars aligned to national priorities.' },
+  { icon: 'chart', title: 'Maturity Assessments & ICT Audits', text: 'Current-state and EA maturity assessments, high-level IT systems audits and gap analyses that give decision-makers an objective baseline.' },
+  { icon: 'server', title: 'Service Digitisation & Process Re-engineering', text: 'Business process re-engineering, one-stop-shop service models and digitisation methodologies for G2C, G2B and G2G services.' },
+  { icon: 'box', title: 'Technical Specifications & Procurement Support', text: 'Functional and non-functional specifications, infrastructure sizing, CAPEX/OPEX estimates, and TOR/RFP preparation for implementation phases.' },
+  { icon: 'shield', title: 'Cybersecurity & Data Protection Architecture', text: 'Security architecture, data classification and privacy-by-design controls aligned to ISO/IEC 27001 and national data-protection law.' },
+  { icon: 'wrench', title: 'Capacity Building & Programme Assurance', text: 'Training, mentorship and helpdesk support for public-sector teams, plus PMO and quality assurance for digital programmes.' },
+] as const
 
 export const eaObjectives = [
-  { title: 'UI / UX Standards', text: 'Guidelines for consistent, usable and accessible (WCAG 2.1) government digital services.' },
-  { title: 'Stakeholder Consultation', text: 'Structured, inclusive consultation with institutions and beneficiaries aligned to national priorities.' },
-  { title: 'Technical Requirements', text: 'System specifications and operational standards for design, deployment and sustainability.' },
-  { title: 'Interoperability', text: 'Common standards, protocols and frameworks for seamless G2G, G2B and G2C data exchange.' },
-  { title: 'Security & Privacy', text: 'Security controls, governance mechanisms and compliance with national and international best practice.' },
+  { title: 'Interoperable', text: 'Common standards, protocols and APIs so G2G, G2B and G2C services exchange data seamlessly.' },
+  { title: 'Secure & Private', text: 'Security controls, governance and data-protection compliance embedded from the start.' },
+  { title: 'Citizen-Centred', text: 'Consistent, usable and accessible (WCAG 2.2) services, built on the “once-only” principle so citizens never re-submit the same data.' },
+  { title: 'Value for Money', text: 'An objective basis for reviewing ICT investment, reusing shared platforms and avoiding duplication.' },
+  { title: 'Sustainable', text: 'Owned by the institution, with the skills, documentation and governance to maintain it.' },
 ]
 
 export const eaPhases = [
   {
     id: '01',
     title: 'Mobilisation & Inception',
-    weeks: 'Weeks 1–2',
-    output: 'Inception Report',
+    weeks: 'Foundation',
+    output: 'Inception Report · Work Plan',
     points: [
-      'Deploy the core team to the client duty station and agree governance with the PIU',
-      'Confirm scope, stakeholder map, risk register and detailed work plan',
-      'Collect existing policies, systems inventories and architecture artefacts',
+      'Agree governance, reporting lines and communication with the client’s project team',
+      'Confirm scope, stakeholder map, risk register and a detailed, milestone-based work plan',
+      'Gather existing policies, strategies, systems inventories and architecture artefacts',
     ],
   },
   {
     id: '02',
-    title: 'Current State & Gap Analysis',
-    weeks: 'Weeks 3–6',
-    output: 'Current State Assessment · Gap Analysis Report',
+    title: 'Discovery & Current-State Assessment',
+    weeks: 'Baseline',
+    output: 'Current-State & Maturity Assessment',
     points: [
-      'Baseline business, data, application and technology architectures (TOGAF ADM Phases B–D)',
-      'High-level IT systems audits and validation of proposed technical specifications',
-      'Maturity assessment of e-services, shared infrastructure and cybersecurity posture',
+      'Baseline business, data, application and technology architectures (TOGAF® ADM Phases B–D)',
+      'High-level IT systems audits and validation of existing or proposed technical specifications',
+      'Maturity assessment of e-services, shared infrastructure, skills and cybersecurity posture',
     ],
   },
   {
     id: '03',
-    title: 'Target Architecture & Draft Framework',
-    weeks: 'Weeks 7–9',
-    output: 'Draft GEA Framework',
+    title: 'Gap Analysis & Target Architecture',
+    weeks: 'Design',
+    output: 'Gap Analysis · Draft Framework',
     points: [
-      'Architecture principles, reference models and a common vocabulary for all agencies',
-      'Interoperability framework: SOA, event-driven integration, API and data-exchange standards',
-      'UI/UX, security, privacy and non-functional requirement standards',
+      'Architecture principles, reference models and a common vocabulary for every institution',
+      'Interoperability design: service-oriented and event-driven integration, API and data-exchange standards',
+      'UI/UX, security, privacy and non-functional standards that all new systems must meet',
     ],
   },
   {
     id: '04',
-    title: 'Consultation & Validation',
-    weeks: 'Weeks 10–14',
+    title: 'Stakeholder Consultation & Validation',
+    weeks: 'Consensus',
     output: 'Validated Framework · Workshop Reports',
     points: [
-      'Stakeholder consultations with ministries, agencies and beneficiaries, including field visits',
-      'Validation workshops and structured feedback incorporation',
-      'Inclusive engagement consistent with World Bank ESF and GBV/SEA/SH safeguards',
+      'Structured, inclusive consultations with institutions, users and beneficiaries, including field visits',
+      'Validation workshops, with every comment logged, answered and reflected in the next draft',
+      'Engagement that follows the client’s and funders’ environmental, social and safeguarding standards',
     ],
   },
   {
     id: '05',
-    title: 'Roadmap, Specifications & RFP',
-    weeks: 'Weeks 15–20',
-    output: 'Implementation Plan · Technical Specs · Draft RFP',
+    title: 'Roadmap, Specifications & Procurement',
+    weeks: 'Plan',
+    output: 'Implementation Plan · Specifications · TOR/RFP',
     points: [
-      'Digitalisation methodology, procedure and implementation calendar',
+      'Digitisation methodology, prioritised roadmap and implementation calendar',
       'Infrastructure requirements (data centre, network, cloud, software, security) with CAPEX/OPEX',
-      'Human-resource and skills plan, and draft TOR/RFP for GEA and interoperability rollout',
+      'Human-resource and skills plan, and draft TOR/RFP documents for the implementation phase',
     ],
   },
   {
     id: '06',
-    title: 'Capacity Building & Handover',
-    weeks: 'Weeks 21–24+',
-    output: 'Final GEA Framework · Training Materials',
+    title: 'Capacity Building & Transition',
+    weeks: 'Sustain',
+    output: 'Final Framework · Training Materials',
     points: [
-      'Training manuals and user guides on platform-level services',
-      'Helpdesk / mentorship mechanism with periodic reports on issues resolved and skills transferred',
-      'Quarterly technical training for public-sector developers and advisory briefing notes to management',
+      'Training manuals, user guides and hands-on training for technical teams and developers',
+      'Helpdesk and mentorship support, with periodic reports on issues resolved and skills transferred',
+      'Advisory briefings to management on standards, governance and emerging technology',
     ],
   },
 ]
 
 export const eaDeliverables = [
-  'Inception Report and monthly progress reports',
-  'Current State Assessment & Gap Analysis Reports',
-  'Approved Government Enterprise Architecture Framework with technical specifications',
-  'Digitalisation Approach & Implementation Plan (functional and non-functional minimum standards)',
-  'Interoperability roadmap with capital, operational and human-resource estimates',
-  'Draft RFP / TOR for GEA and Interoperability Framework implementation',
-  'Technical training materials, user manuals and helpdesk mechanism',
+  'Inception report, work plan and regular progress reports',
+  'Current-state, maturity and gap-analysis reports',
+  'Enterprise architecture framework with principles, reference models and standards',
+  'Interoperability framework with API, data-exchange and security standards',
+  'Digitisation approach, roadmap and implementation plan',
+  'Technical specifications with capital, operating and human-resource estimates',
+  'Draft TOR/RFP documents for implementation',
+  'Training materials, user manuals and a helpdesk/mentorship mechanism',
 ]
 
 export const eaToolkit = [
-  { group: 'Frameworks', items: ['TOGAF® ADM', 'Zachman Framework', 'ITIL® / ISO 20000', 'ISO/IEC 27001', 'COBIT governance'] },
-  { group: 'Integration', items: ['Service-Oriented Architecture', 'Event-Driven Architecture', 'API management & gateways', 'Microservices', 'Enterprise Service Bus / EAI'] },
-  { group: 'Modelling', items: ['ArchiMate®', 'UML', 'BPMN 2.0', 'Systems Analysis & Design', 'CASE tools (Sparx EA, Archi)'] },
-  { group: 'Standards', items: ['WCAG 2.1 accessibility', 'OpenAPI / REST', 'Data-protection by design', 'World Bank ESF', 'GBV/SEA/SH safeguards'] },
+  { group: 'Architecture', items: ['TOGAF® Standard, 10th Edition', 'Zachman Framework', 'ISO/IEC/IEEE 42010', 'COBIT® 2019 governance', 'ITIL® 4 / ISO/IEC 20000'] },
+  { group: 'Integration', items: ['Service-oriented & event-driven architecture', 'API management & gateways', 'Microservices', 'X-Road-style secure data exchange', 'GovStack building blocks'] },
+  { group: 'Modelling', items: ['ArchiMate® 3.2', 'UML', 'BPMN 2.0', 'Systems Analysis & Design', 'CASE tools (Sparx EA, Archi)'] },
+  { group: 'Standards', items: ['OpenAPI 3 / REST', 'OAuth 2.0 & OpenID Connect', 'ISO/IEC 27001 & NIST CSF 2.0', 'WCAG 2.2 accessibility', 'Data protection by design'] },
 ]
 
+// Key-expert profiles we field; the team is scaled to each assignment's scope.
 export const eaTeam = [
   {
     role: 'Team Leader',
-    months: 8,
-    focus: 'Project execution, stakeholder coordination and deliverable review.',
-    profile: ['Master’s in IT, Computer Science or Project Management', 'PMP®-certified', '5+ years in enterprise architecture', 'Large-scale public-sector IT project leadership'],
+    tag: 'Leadership',
+    focus: 'Overall delivery, client and stakeholder relationships, quality of every deliverable.',
+    profile: ['Master’s in IT, Computer Science or Project Management', 'PMP® or equivalent certification', 'Enterprise architecture and large public-sector IT programmes'],
   },
   {
     role: 'Enterprise Architect',
-    months: 10,
-    focus: 'Framework development, gap analysis and technical documentation.',
-    profile: ['TOGAF® / Zachman-certified', '5+ years EA development', 'Government EA design & implementation', 'EA modelling and simulation tools'],
+    tag: 'Architecture',
+    focus: 'Framework design, current-state and gap analysis, architecture documentation.',
+    profile: ['TOGAF® / Zachman-certified', 'Government and institutional EA design', 'EA modelling and simulation tools'],
   },
   {
-    role: 'Application Integration Specialist',
-    months: 8,
-    focus: 'Integration solutions, API standards and interoperability protocols.',
-    profile: ['SOA, API management & microservices', 'Middleware for seamless data exchange', 'G2G / B2B integration experience', 'EAI patterns for heterogeneous systems'],
+    role: 'Integration & Interoperability Specialist',
+    tag: 'Integration',
+    focus: 'Integration patterns, API standards and data-exchange protocols.',
+    profile: ['SOA, API management and microservices', 'Middleware and enterprise application integration', 'G2G and B2B integration'],
   },
+  {
+    role: 'Business Process & Service Design Analyst',
+    tag: 'Services',
+    focus: 'Process re-engineering, service design and user-centred digitisation.',
+    profile: ['BPMN process modelling', 'Service design and UX standards', 'Requirements analysis (functional and non-functional)'],
+  },
+  {
+    role: 'Cybersecurity & Data Protection Specialist',
+    tag: 'Security',
+    focus: 'Security architecture, risk assessment and data-protection compliance.',
+    profile: ['ISO/IEC 27001 practice', 'Security audits and risk assessment', 'Data-protection and privacy controls'],
+  },
+  {
+    role: 'Capacity Building Lead',
+    tag: 'Skills transfer',
+    focus: 'Training programmes, manuals, mentorship and knowledge transfer.',
+    profile: ['Adult-learning and training design', 'Technical training for developers', 'Helpdesk and mentorship mechanisms'],
+  },
+]
+
+// The global and African reference points our work is benchmarked against
+export const eaReferences = [
+  {
+    title: 'Benchmarked internationally',
+    text: 'We baseline maturity using the dimensions of the UN E-Government Development Index (EGDI) and the World Bank GovTech Maturity Index (GTMI), so progress is measured the way funders and international rankings measure it.',
+    tags: ['UN EGDI', 'World Bank GTMI'],
+  },
+  {
+    title: 'Interoperability by design',
+    text: 'Our interoperability frameworks cover the legal, organisational, semantic and technical layers defined by the European Interoperability Framework, and draw on proven patterns such as Estonia’s X-Road and the GovStack building-block specifications.',
+    tags: ['EIF layers', 'X-Road', 'GovStack'],
+  },
+  {
+    title: 'Digital public infrastructure',
+    text: 'We architect the shared “rails” of digital government — identity, payments and data exchange — favouring open standards and open-source options such as MOSIP for identity and Mojaloop for interoperable payments to avoid vendor lock-in.',
+    tags: ['Identity', 'Payments', 'Data exchange'],
+  },
+  {
+    title: 'Aligned with African policy',
+    text: 'Frameworks align with the AU Digital Transformation Strategy for Africa (2020–2030), the AU Data Policy Framework and the Malabo Convention on cyber security and personal data protection, as well as national law and plans — for example Kenya’s Data Protection Act 2019 and Digital Master Plan 2022–2032.',
+    tags: ['AU DTS 2020–2030', 'Malabo Convention', 'National data protection'],
+  },
+]
+
+// Why government architecture programmes fail — and what our method does about it
+export const eaPitfalls = [
+  { risk: 'Frameworks that stay on the shelf', fix: 'A governance model (architecture board, compliance reviews, investment gating) and trained owners, so the framework is used in every new ICT decision.' },
+  { risk: 'Duplicated registries and siloed systems', fix: 'Authoritative base registries and the once-only principle: data is captured once and shared securely through a common exchange layer.' },
+  { risk: 'Vendor lock-in', fix: 'Open standards, open APIs and technology-neutral specifications, so future procurements stay competitive.' },
+  { risk: 'Designs that ignore local realities', fix: 'Low-bandwidth, mobile-first and offline-capable patterns for regions with limited connectivity, and USSD/SMS channels where smartphones are scarce.' },
+  { risk: 'Weak data protection', fix: 'Privacy by design, data classification, consent and audit trails aligned to national data-protection law from day one.' },
+  { risk: 'Skills leave with the consultants', fix: 'Capacity building runs through every phase — co-working, training, manuals and mentorship — not just at the end.' },
+]
+
+// How we reduce delivery risk on every assignment
+export const eaAssurance = [
+  { title: 'Milestone-linked delivery', text: 'Every payment milestone is tied to a clear, reviewable deliverable.' },
+  { title: 'Independent quality review', text: 'Each deliverable is peer-reviewed by a senior consultant before submission.' },
+  { title: 'Risk & issue management', text: 'A live risk register, reviewed with the client at every progress meeting.' },
+  { title: 'Transparent reporting', text: 'Regular progress reports: work done, challenges and mitigations, next steps.' },
+  { title: 'Client ownership', text: 'All reports, frameworks and data belong to the client and are handed over in full, in editable formats.' },
+  { title: 'Confidentiality & ethics', text: 'Strict confidentiality, conflict-of-interest management and zero tolerance for misconduct.' },
+]
+
+// How we meet the requirements that EA and digital-government tenders typically set
+export const eaTenderFit = [
+  { req: 'Registered consulting firm with core business in ICT', how: 'Technology Abreast is a registered Kenyan ICT consultancy whose core business is ICT strategy, governance, architecture and managed services.' },
+  { req: 'Experience with EA frameworks such as TOGAF or Zachman', how: 'Our methodology is built on TOGAF® ADM and Zachman, modelled in ArchiMate®, UML and BPMN.' },
+  { req: 'SOA, event-driven architecture and integration expertise', how: 'Interoperability and integration design is a core service: SOA, EDA, API management, microservices and EAI.' },
+  { req: 'Qualified key experts (Team Leader, Architect, Integration)', how: 'We field PMP®-, TOGAF®-, ITIL®- and security-certified experts, scaled to the scope of each assignment.' },
+  { req: 'Structured stakeholder consultation and validation', how: 'Consultation and validation are a dedicated phase of our method, with every comment tracked to resolution.' },
+  { req: 'Technical specifications, costing and procurement documents', how: 'We produce specifications with CAPEX/OPEX and human-resource estimates, plus draft TOR/RFPs for implementation.' },
+  { req: 'Capacity building and knowledge transfer', how: 'Training materials, helpdesk/mentorship and regular technical training are built into every engagement.' },
+  { req: 'On-site delivery and safeguards compliance', how: 'Teams based on-site for the assignment, following national law and funders’ environmental, social and safeguarding standards.' },
 ]
 
 // Verified past assignments for tender submissions.
@@ -559,26 +656,30 @@ export const assignments: Assignment[] = []
 export const eaFaqs = [
   {
     q: 'What is a Government Enterprise Architecture Framework (GEAF)?',
-    a: 'A GEAF is a shared blueprint for how government delivers digital services. It sets common principles, standards and reference models for business processes, data, applications, technology and security, so ministries and agencies can build services that work together instead of in silos.',
+    a: 'A GEAF is a shared blueprint for how government delivers digital services. It sets common principles, standards and reference models for business processes, data, applications, technology and security, so institutions can build services that work together instead of in silos.',
   },
   {
     q: 'Which frameworks and methods do you use?',
     a: 'We align our work to TOGAF® ADM and the Zachman Framework, model with ArchiMate®, UML and BPMN, and design integration using service-oriented and event-driven architecture, API management and microservices. Service management and security follow ITIL®/ISO 20000 and ISO/IEC 27001 practice.',
   },
   {
-    q: 'How long does a GEA assignment take?',
-    a: 'A typical assignment runs for about six months across six phases: inception, current-state and gap analysis, target architecture, stakeholder validation, roadmap and specifications, and capacity building — with deliverables tied to each milestone.',
+    q: 'How long does an enterprise architecture assignment take?',
+    a: 'It depends on scope. Focused assessments can take a few weeks; a full national or institutional framework with stakeholder validation and capacity building typically takes four to nine months. We adapt our six-phase method to the client’s timeline and milestones.',
+  },
+  {
+    q: 'Can you adapt to our terms of reference and funder requirements?',
+    a: 'Yes. We map our work plan, deliverables, reporting and team directly to your terms of reference, and follow the procurement, reporting and safeguard requirements of your government and development partners.',
   },
   {
     q: 'What will our institution receive at the end?',
-    a: 'An approved enterprise architecture framework with technical specifications, a digitalisation approach and implementation plan, an interoperability roadmap with capital, operating and human-resource estimates, a draft RFP for implementation, and training materials and user manuals — all owned by the client.',
+    a: 'An enterprise architecture framework with technical specifications, an interoperability framework, a digitisation roadmap and implementation plan with cost and resource estimates, draft procurement documents for implementation, and training materials — all owned by the client.',
   },
   {
     q: 'Do you support institutions after the framework is adopted?',
-    a: 'Yes. We provide structured capacity support: training manuals, a helpdesk and mentorship mechanism, quarterly technical training for public-sector developers, and advisory briefing notes for management.',
+    a: 'Yes. We provide structured capacity support — training, a helpdesk and mentorship mechanism, and advisory briefings for management — and can support implementation through PMO and quality-assurance services.',
   },
   {
-    q: 'Can your team work on-site with the client?',
-    a: 'Yes. Our core team is based at the client’s duty station for the duration of the assignment and travels for regional stakeholder consultations and system assessments, following the client’s travel and security protocols.',
+    q: 'Can your team work on-site, including outside Kenya?',
+    a: 'Yes. Our core team can be based on-site for the duration of an assignment, with field visits for consultations and assessments, following the client’s travel and security protocols.',
   },
 ]

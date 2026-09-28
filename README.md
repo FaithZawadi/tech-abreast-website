@@ -36,10 +36,18 @@ All text lives in **`lib/content.ts`**: services, industries, stats, values, the
 
 ## Images
 
-- `public/images/hero.jpg` and `public/images/team.jpg` are the original photos, converted to JPEG.
-- `public/images/industries/*.jpg` are cropped from the original industries collage.
-- `public/logo-mark.png` is the logo's wing mark.
-- The architecture diagrams (`components/illustrations/`) are animated SVGs in the brand colours.
+Photos live in `public/images/` (hero, team/about, and one per industry in `industries/`).
+To replace them with high-quality stock photos from Pexels (free for commercial use):
+
+```bash
+# 1. Free API key: https://www.pexels.com/api/
+PEXELS_API_KEY=your_key node scripts/stock-photos.mjs search      # all slots, or name some: search hero banking
+open stock-candidates/index.html                                    # preview and note the numbers you like
+node scripts/stock-photos.mjs pick hero 3 team 2 banking 5          # installs them into the site
+```
+
+Photographer credits are recorded in `public/images/credits.json`. The architecture
+diagrams (`components/illustrations/`) are animated SVGs in the brand colours.
 
 ## Hosting with Docker (shared VPS)
 

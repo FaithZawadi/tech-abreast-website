@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { approach } from '@/lib/content'
+import { accent } from '@/lib/accent'
 
 // Interactive grid: hovering / focusing a pillar highlights it and shows its detail.
 export default function ApproachGrid() {
@@ -10,7 +11,7 @@ export default function ApproachGrid() {
     <div className="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
       <div className="relative overflow-hidden rounded-3xl bg-ink p-10 text-white">
         <div className="rays -right-72 -top-72" />
-        <span className="relative text-7xl font-extrabold text-wing">{String(active + 1).padStart(2, '0')}</span>
+        <span className={`relative text-7xl font-extrabold transition-colors ${accent(active).text}`}>{String(active + 1).padStart(2, '0')}</span>
         <motion.div key={active} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className="relative mt-6">
           <h3 className="text-3xl font-bold">{approach[active].title}</h3>
           <p className="mt-4 text-lg leading-relaxed text-white/70">{approach[active].text}</p>
@@ -29,11 +30,11 @@ export default function ApproachGrid() {
             onClick={() => setActive(i)}
             className={`rounded-2xl border p-5 text-left transition-all duration-300 ${
               active === i
-                ? 'border-transparent bg-wing text-ink shadow-xl'
-                : 'border-fg/10 bg-surface text-fg hover:border-brand-orange/40'
+                ? `border-transparent text-white shadow-xl ${accent(i).bg} ${accent(i).shadow}`
+                : `border-fg/10 bg-surface text-fg ${accent(i).hoverBorder}`
             }`}
           >
-            <span className={`text-xs font-bold ${active === i ? 'text-ink/60' : 'text-brand-orange'}`}>
+            <span className={`text-xs font-bold ${active === i ? 'text-white/75' : accent(i).text}`}>
               {String(i + 1).padStart(2, '0')}
             </span>
             <span className="mt-2 block text-base font-semibold">{a.title}</span>

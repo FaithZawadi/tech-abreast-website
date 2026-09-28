@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { AlertTriangle, ArrowRight, CheckCircle2 } from 'lucide-react'
 import { CtaBand, PageHero, Reveal } from '@/components/ui'
 import { industries, services } from '@/lib/content'
+import { accent } from '@/lib/accent'
 import { pageMeta } from '@/lib/seo'
 
 export const metadata: Metadata = pageMeta({
@@ -58,7 +59,7 @@ export default function IndustriesPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/20 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-8">
-                    <span className="text-5xl font-extrabold text-wing">{String(i + 1).padStart(2, '0')}</span>
+                    <span className={`text-5xl font-extrabold ${accent(i).text}`}>{String(i + 1).padStart(2, '0')}</span>
                     <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">{ind.title}</h2>
                     <p className="mt-2 text-sm leading-relaxed text-white/75">{ind.text}</p>
                   </div>
@@ -103,7 +104,7 @@ export default function IndustriesPage() {
                     </div>
                     <Link
                       href={`/contact?topic=${ind.services[0]}`}
-                      className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-orange hover:gap-3"
+                      className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold hover:gap-3 ${accent(i).text}`}
                     >
                       Talk to us about {ind.title} <ArrowRight size={16} />
                     </Link>

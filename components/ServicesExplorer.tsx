@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { ServiceIcon } from './ui'
 import { services } from '@/lib/content'
+import { accent } from '@/lib/accent'
 
 const filters = ['All', 'Service', 'Solution'] as const
 
@@ -30,7 +31,7 @@ export default function ServicesExplorer() {
 
       <motion.div layout className="mt-10 grid gap-5 md:grid-cols-2">
         <AnimatePresence mode="popLayout">
-          {list.map((s) => (
+          {list.map((s, i) => (
             <motion.div
               layout
               key={s.slug}
@@ -43,14 +44,14 @@ export default function ServicesExplorer() {
                 href={`/services/${s.slug}`}
                 className="card-hover group flex h-full gap-6 rounded-3xl bg-surface p-7"
               >
-                <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-ink text-brand-amber transition-colors group-hover:bg-brand-orange group-hover:text-white">
+                <span className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl transition-colors group-hover:text-white ${accent(i).soft} ${accent(i).hoverBg}`}>
                   <ServiceIcon name={s.icon} className="h-7 w-7" />
                 </span>
                 <span className="flex-1">
                   <span className="text-xs font-semibold uppercase tracking-widest text-brand-olive">{s.kind}</span>
                   <span className="mt-1 block text-xl font-bold text-fg">{s.title}</span>
                   <span className="mt-2 block leading-relaxed text-fg/60">{s.summary}</span>
-                  <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-orange">
+                  <span className={`mt-4 inline-flex items-center gap-2 text-sm font-semibold ${accent(i).text}`}>
                     Details <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
                   </span>
                 </span>

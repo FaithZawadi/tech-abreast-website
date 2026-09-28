@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Eye, Target } from 'lucide-react'
 import { CtaBand, Marquee, PageHero, Reveal, SectionHeading } from '@/components/ui'
 import { certifications, values, whyUs } from '@/lib/content'
+import { accent } from '@/lib/accent'
 import { pageMeta } from '@/lib/seo'
 
 export const metadata: Metadata = pageMeta({
@@ -46,7 +47,7 @@ export default function AboutPage() {
           </div>
           <Reveal delay={0.15} className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-              <Image src="/images/team.jpg" alt="Technology Abreast team" fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" />
+              <Image src="/images/team.jpg" alt="ICT consultants collaborating in a modern office" fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" />
             </div>
             <div className="bg-wing absolute -left-4 -top-4 -z-10 h-full w-full rounded-3xl opacity-80" />
           </Reveal>
@@ -77,7 +78,7 @@ export default function AboutPage() {
             {values.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.07}>
                 <div className="card-hover group h-full rounded-3xl border border-fg/10 p-7 text-center">
-                  <div className="bg-wing mx-auto flex h-14 w-14 items-center justify-center rounded-full text-lg font-bold text-ink">
+                  <div className={`mx-auto flex h-14 w-14 items-center justify-center rounded-full text-lg font-bold text-white ${accent(i).bg}`}>
                     {v.title[0]}
                   </div>
                   <h3 className="mt-5 text-lg font-bold">{v.title}</h3>
@@ -96,7 +97,7 @@ export default function AboutPage() {
             {whyUs.map((w, i) => (
               <Reveal key={w} delay={i * 0.07}>
                 <div className="flex items-center gap-5 rounded-2xl bg-surface p-6">
-                  <span className="text-3xl font-extrabold text-wing">0{i + 1}</span>
+                  <span className={`text-3xl font-extrabold ${accent(i).text}`}>0{i + 1}</span>
                   <span className="font-medium text-fg/80">{w}</span>
                 </div>
               </Reveal>

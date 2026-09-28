@@ -3,6 +3,7 @@ import { Clock, Inbox, Mail, MapPin, Phone } from 'lucide-react'
 import ContactForm from '@/components/ContactForm'
 import { PageHero, Reveal } from '@/components/ui'
 import { company } from '@/lib/content'
+import { accent } from '@/lib/accent'
 import { pageMeta } from '@/lib/seo'
 
 export const metadata: Metadata = pageMeta({
@@ -34,7 +35,7 @@ export default function ContactPage({ searchParams }: { searchParams: { topic?: 
             {details.map((d, i) => (
               <Reveal key={d.label} delay={i * 0.06}>
                 <div className="flex gap-5 rounded-2xl bg-surface p-6">
-                  <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${i % 2 ? 'bg-brand-olive/15 text-brand-olive' : 'bg-brand-orange/15 text-brand-orange'}`}>
+                  <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${accent(i).soft}`}>
                     <d.icon size={22} />
                   </span>
                   <div>
