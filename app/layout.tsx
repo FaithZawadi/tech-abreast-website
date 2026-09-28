@@ -24,7 +24,7 @@ const poppins = localFont({
   variable: '--font-poppins',
 })
 
-const title = 'Technology Abreast | ICT Consultancy, Managed Services & Enterprise Architecture'
+const title = 'Technology Abreast | ICT Consultancy & Managed IT Services in Nairobi, Kenya'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

@@ -28,23 +28,23 @@ export default function HomeHero() {
       <div className="rays -left-80 top-10" />
 
       <motion.div style={{ opacity: fade }} className="container-x relative pb-24 pt-36">
-        <motion.span
+        <motion.h1
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           className="eyebrow text-brand-lime"
         >
-          ICT Consultancy · Managed Services · Digital Solutions
-        </motion.span>
+          Technology Abreast · ICT Consultancy &amp; Managed IT Services in Nairobi, Kenya
+        </motion.h1>
 
-        <motion.h1
+        <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 max-w-4xl text-5xl font-extrabold leading-[1.05] text-white sm:text-6xl lg:text-7xl"
         >
           Digital Business <span className="text-wing">Enablers.</span>
-        </motion.h1>
+        </motion.p>
 
         <motion.div
           initial={{ opacity: 0 }}
