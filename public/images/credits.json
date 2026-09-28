@@ -1,0 +1,72 @@
+{
+  "public/images/hero.jpg": {
+    "source": "Pexels",
+    "photographer": "Christina Morillo",
+    "photographerUrl": "https://www.pexels.com/@divinetechygirl",
+    "url": "https://www.pexels.com/photo/woman-wearing-white-gray-and-black-elbow-sleeved-dress-using-macbook-pro-1181461/",
+    "alt": "Two women working on laptops and monitors in a bright office setting, focused on technology and teamwork."
+  },
+  "public/images/team.jpg": {
+    "source": "Pexels",
+    "photographer": "Mizuno K",
+    "photographerUrl": "https://www.pexels.com/@mizunokozuki",
+    "url": "https://www.pexels.com/photo/man-and-woman-using-laptop-in-an-office-12903148/",
+    "alt": "A man and a woman collaborating on a laptop in a modern office setting."
+  },
+  "public/images/industries/public-sector.jpg": {
+    "source": "Pexels",
+    "photographer": "Phil Evenden",
+    "photographerUrl": "https://www.pexels.com/@philevenphotos",
+    "url": "https://www.pexels.com/photo/hampton-city-hall-modern-architecture-in-black-and-white-36595084/",
+    "alt": "Modernist architecture of Hampton City Hall captured in striking black and white photography."
+  },
+  "public/images/industries/banking.jpg": {
+    "source": "Pexels",
+    "photographer": "Alexandra Krainyukhova",
+    "photographerUrl": "https://www.pexels.com/@alexakrain",
+    "url": "https://www.pexels.com/photo/clock-on-books-8332112/",
+    "alt": "A classic black alarm clock rests on blue books with textured fabric backdrop."
+  },
+  "public/images/industries/healthcare.jpg": {
+    "source": "Pexels",
+    "photographer": "Chad Populis",
+    "photographerUrl": "https://www.pexels.com/@chadpopulisphotography",
+    "url": "https://www.pexels.com/photo/confident-female-doctor-holding-prescription-bottles-30270934/",
+    "alt": "A confident female healthcare professional displaying medication bottles, emphasizing health and wellness."
+  },
+  "public/images/industries/education.jpg": {
+    "source": "Pexels",
+    "photographer": "MAG Photography",
+    "photographerUrl": "https://www.pexels.com/@mag-photography-1501456",
+    "url": "https://www.pexels.com/photo/crescent-moon-black-sky-nighttime-36275080/",
+    "alt": "Stunning crescent moon against a pitch-black sky, showcasing lunar texture."
+  },
+  "public/images/industries/travel.jpg": {
+    "source": "Pexels",
+    "photographer": "Lucxama Sylvain",
+    "photographerUrl": "https://www.pexels.com/@lucxama-sylvain-1361467",
+    "url": "https://www.pexels.com/photo/woman-in-black-jacket-5379138/",
+    "alt": "Portrait of fashionable woman with dreadlocks and glasses on blue background."
+  },
+  "public/images/industries/retail.jpg": {
+    "source": "Pexels",
+    "photographer": "Haberdoedas Photography",
+    "photographerUrl": "https://www.pexels.com/@haberdoedas",
+    "url": "https://www.pexels.com/photo/succulent-plant-in-decorative-pot-on-shelf-33316045/",
+    "alt": "A stylish succulent plant in a decorative pot with art nearby, perfect for a modern interior."
+  },
+  "public/images/industries/engineering.jpg": {
+    "source": "Pexels",
+    "photographer": "Abhinav Toppo",
+    "photographerUrl": "https://www.pexels.com/@abhinav",
+    "url": "https://www.pexels.com/photo/black-motorcycle-8532493/",
+    "alt": "Close-up of a sleek black motorcycle with prominent headlights in an urban setting."
+  },
+  "public/images/industries/construction.jpg": {
+    "source": "Pexels",
+    "photographer": "Phil Evenden",
+    "photographerUrl": "https://www.pexels.com/@philevenphotos",
+    "url": "https://www.pexels.com/photo/urban-street-portrait-of-older-man-with-grey-beard-39148280/",
+    "alt": "Black and white photo of an elderly man in urban setting, wearing a beanie and vest."
+  }
+}
