@@ -72,6 +72,17 @@ const SLOTS = {
   },
 }
 
+// Pexels occasionally returns 5xx or 429 errors; retry a few times with a short backoff.
+async function fetchWithRetry(url, opts = {}, tries = 4) {
+  let res
+  for (let i = 0; i < tries; i++) {
+    res = await fetch(url, opts)
+    if (res.ok || (res.status < 500 && res.status !== 429)) return res
+    await new Promise((r) => setTimeout(r, 1000 * 2 ** i))
+  }
+  return res
+}
+
 async function search(slotNames) {
   const key = process.env.PEXELS_API_KEY
   if (!key) {
@@ -92,14 +103,14 @@ async function search(slotNames) {
     const items = []
     for (const q of slot.queries) {
       const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(q)}&orientation=${slot.orientation}&size=large&per_page=${PER_QUERY}`
-      const res = await fetch(url, { headers: { Authorization: key } })
+      const res = await fetchWithRetry(url, { headers: { Authorization: key } })
       if (!res.ok) { console.warn(`  search failed for "${q}": ${res.status}`); continue }
       const { photos = [] } = await res.json()
       for (const p of photos) {
         if (seen.has(p.id)) continue
         seen.add(p.id)
         const n = items.length + 1
-        const img = await fetch(`${p.src.original}?auto=compress&cs=tinysrgb&w=${slot.width}`)
+        const img = await fetchWithRetry(`${p.src.original}?auto=compress&cs=tinysrgb&w=${slot.width}`)
         if (!img.ok) continue
         await fs.writeFile(path.join(dir, `${n}.jpg`), Buffer.from(await img.arrayBuffer()))
         items.push({ n, id: p.id, alt: p.alt, photographer: p.photographer, photographerUrl: p.photographer_url, pexelsUrl: p.url, query: q })
