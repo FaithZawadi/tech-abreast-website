@@ -5,6 +5,7 @@ import { ArrowRight } from 'lucide-react'
 import { CtaBand, PageHero, Reveal, ServiceIcon } from '@/components/ui'
 import JsonLd from '@/components/JsonLd'
 import { services } from '@/lib/content'
+import { accent } from '@/lib/accent'
 import { breadcrumbLd, pageMeta, serviceLd } from '@/lib/seo'
 
 export function generateStaticParams() {
@@ -59,7 +60,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             {s.items.map((it, i) => (
               <Reveal key={it.title} delay={(i % 2) * 0.08}>
                 <div className="card-hover h-full rounded-3xl border border-fg/10 p-7">
-                  <span className="text-sm font-bold text-brand-orange">{String(i + 1).padStart(2, '0')}</span>
+                  <span className={`text-sm font-bold ${accent(i).text}`}>{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="mt-3 text-lg font-bold">{it.title}</h3>
                   <p className="mt-2 leading-relaxed text-fg/60">{it.text}</p>
                 </div>
@@ -69,7 +70,7 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
           <aside className="space-y-6 lg:sticky lg:top-28 lg:self-start">
             <div className="rounded-3xl bg-ink p-7 text-white">
-              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-wing text-ink">
+              <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-orange text-white">
                 <ServiceIcon name={s.icon} className="h-7 w-7" />
               </span>
               <p className="mt-5 text-white/70">{s.summary}</p>

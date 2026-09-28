@@ -6,6 +6,7 @@ import ApproachGrid from '@/components/ApproachGrid'
 import EALayers from '@/components/illustrations/EALayers'
 import { ArrowLink, Counter, CtaBand, Marquee, Reveal, SectionHeading, ServiceIcon } from '@/components/ui'
 import { certifications, eaToolkit, industries, services, stats, whyUs } from '@/lib/content'
+import { accent } from '@/lib/accent'
 
 export default function Home() {
   const featured = services.filter((s) => s.featured)
@@ -36,7 +37,7 @@ export default function Home() {
         <div className="container-x grid items-center gap-16 lg:grid-cols-2">
           <Reveal className="relative">
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
-              <Image src="/images/team.jpg" alt="The Technology Abreast team" fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" />
+              <Image src="/images/team.jpg" alt="ICT consultants collaborating in a modern office" fill className="object-cover" sizes="(min-width:1024px) 50vw, 100vw" />
             </div>
             <div className="absolute -bottom-8 -right-4 max-w-[16rem] rounded-2xl bg-ink p-6 text-white shadow-2xl sm:-right-8">
               <p className="text-sm italic leading-relaxed text-white/80">
@@ -85,18 +86,18 @@ export default function Home() {
                   href={`/services/${s.slug}`}
                   className="card-hover group relative flex h-full flex-col overflow-hidden rounded-3xl bg-surface p-8"
                 >
-                  <span className="absolute right-6 top-5 text-6xl font-extrabold text-fg/[0.04] transition-colors group-hover:text-brand-orange/10">
+                  <span className={`absolute right-6 top-5 text-6xl font-extrabold text-fg/[0.04] transition-colors ${accent(i).hoverText}`}>
                     {String(i + 1).padStart(2, '0')}
                   </span>
-                  <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-ink text-brand-amber transition-colors duration-300 group-hover:bg-brand-orange group-hover:text-white">
+                  <span className={`flex h-14 w-14 items-center justify-center rounded-2xl transition-colors duration-300 group-hover:text-white ${accent(i).soft} ${accent(i).hoverBg}`}>
                     <ServiceIcon name={s.icon} className="h-7 w-7" />
                   </span>
                   <h3 className="mt-6 text-xl font-bold text-fg">{s.title}</h3>
                   <p className="mt-3 flex-1 leading-relaxed text-fg/60">{s.summary}</p>
-                  <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-orange">
+                  <span className={`mt-6 inline-flex items-center gap-2 text-sm font-semibold ${accent(i).text}`}>
                     Learn more <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                   </span>
-                  <span className="bg-wing absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100" />
+                  <span className={`absolute inset-x-0 bottom-0 h-1 origin-left scale-x-0 transition-transform duration-500 group-hover:scale-x-100 ${accent(i).bg}`} />
                 </Link>
               </Reveal>
             ))}
@@ -118,9 +119,9 @@ export default function Home() {
             />
             <Reveal delay={0.1}>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                {['Current state & gap analysis', 'Interoperability & API standards', 'Technical specs & CAPEX/OPEX', 'Training & helpdesk mentorship'].map((t) => (
+                {['Current state & gap analysis', 'Interoperability & API standards', 'Technical specs & CAPEX/OPEX', 'Training & helpdesk mentorship'].map((t, i) => (
                   <div key={t} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/85">
-                    <span className="bg-wing h-2 w-2 shrink-0 rounded-full" /> {t}
+                    <span className={`h-2 w-2 shrink-0 rounded-full ${accent(i).bg}`} /> {t}
                   </div>
                 ))}
               </div>
@@ -163,7 +164,7 @@ export default function Home() {
                   <Image src={ind.image} alt={ind.title} fill className="object-cover transition-transform duration-700 group-hover:scale-110" sizes="(min-width:1024px) 25vw, 50vw" />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/30 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-5">
-                    <span className="bg-wing mb-3 block h-1 w-8 rounded-full transition-all duration-500 group-hover:w-16" />
+                    <span className={`mb-3 block h-1 w-8 rounded-full transition-all duration-500 group-hover:w-16 ${accent(i + Math.floor(i / 4)).bg}`} />
                     <h3 className="font-semibold text-white">{ind.title}</h3>
                   </div>
                 </Link>

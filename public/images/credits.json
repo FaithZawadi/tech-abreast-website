@@ -1,0 +1,72 @@
+{
+  "public/images/hero.jpg": {
+    "source": "Pexels",
+    "photographer": "Jep Gambardella",
+    "photographerUrl": "https://www.pexels.com/@jep-gambardella",
+    "url": "https://www.pexels.com/photo/people-working-in-the-office-7689856/",
+    "alt": "A diverse team of professionals collaborating in a modern office environment, using headsets and computers."
+  },
+  "public/images/team.jpg": {
+    "source": "Pexels",
+    "photographer": "Pavel Danilyuk",
+    "photographerUrl": "https://www.pexels.com/@pavel-danilyuk",
+    "url": "https://www.pexels.com/photo/a-woman-handshake-with-the-client-8152734/",
+    "alt": "Two professionals shaking hands in an office setting, symbolizing a successful business partnership."
+  },
+  "public/images/industries/public-sector.jpg": {
+    "source": "Pexels",
+    "photographer": "Phil Evenden",
+    "photographerUrl": "https://www.pexels.com/@philevenphotos",
+    "url": "https://www.pexels.com/photo/hampton-city-hall-modern-architecture-in-black-and-white-36595084/",
+    "alt": "Modernist architecture of Hampton City Hall captured in striking black and white photography."
+  },
+  "public/images/industries/banking.jpg": {
+    "source": "Pexels",
+    "photographer": "Candy Flipping",
+    "photographerUrl": "https://www.pexels.com/@candy",
+    "url": "https://www.pexels.com/photo/close-up-photo-of-a-black-leather-wallet-12495667/",
+    "alt": "Close-up of a hand holding a leather wallet containing various cards."
+  },
+  "public/images/industries/healthcare.jpg": {
+    "source": "Pexels",
+    "photographer": "Chad Populis",
+    "photographerUrl": "https://www.pexels.com/@chadpopulisphotography",
+    "url": "https://www.pexels.com/photo/confident-female-doctor-holding-prescription-bottles-30270934/",
+    "alt": "A confident female healthcare professional displaying medication bottles, emphasizing health and wellness."
+  },
+  "public/images/industries/education.jpg": {
+    "source": "Pexels",
+    "photographer": "Chad Populis",
+    "photographerUrl": "https://www.pexels.com/@chadpopulisphotography",
+    "url": "https://www.pexels.com/photo/2024-graduation-portrait-in-new-orleans-park-30147740/",
+    "alt": "Celebrate 2024 graduation with a joyful portrait in New Orleans wearing a green cap and gown."
+  },
+  "public/images/industries/travel.jpg": {
+    "source": "Pexels",
+    "photographer": "Héctor Berganza",
+    "photographerUrl": "https://www.pexels.com/@hberganza",
+    "url": "https://www.pexels.com/photo/black-and-white-zebra-in-natural-habitat-31827387/",
+    "alt": "Zebra walking gracefully in a monochrome natural setting, highlighting its stripes."
+  },
+  "public/images/industries/retail.jpg": {
+    "source": "Pexels",
+    "photographer": "Haberdoedas Photography",
+    "photographerUrl": "https://www.pexels.com/@haberdoedas",
+    "url": "https://www.pexels.com/photo/colorful-flower-arrangement-in-local-gift-shop-33315774/",
+    "alt": "A vibrant display of flowers and gifts in a charming local shop, perfect for gift-giving inspiration."
+  },
+  "public/images/industries/engineering.jpg": {
+    "source": "Pexels",
+    "photographer": "Yiğit  KARAALİOĞLU",
+    "photographerUrl": "https://www.pexels.com/@ygtphoto",
+    "url": "https://www.pexels.com/photo/silhouette-of-man-in-warehouse-16005624/",
+    "alt": "Silhouette of a person walking in a dimly lit industrial warehouse corridor."
+  },
+  "public/images/industries/construction.jpg": {
+    "source": "Pexels",
+    "photographer": "Wolfgang Weiser",
+    "photographerUrl": "https://www.pexels.com/@wolfgang-weiser-467045605",
+    "url": "https://www.pexels.com/photo/industrial-cranes-in-hamburg-harbour-35504190/",
+    "alt": "Black and white photo of industrial cranes at Hamburg Harbour, Germany."
+  }
+}
