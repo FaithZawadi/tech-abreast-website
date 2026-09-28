@@ -28,17 +28,17 @@ export default function ContactPage({ searchParams }: { searchParams: { topic?: 
         title={<>Let’s build what’s <span className="text-wing">next.</span></>}
         text="Tell us about your organisation and what you are trying to achieve. A senior consultant — not a salesperson — will respond."
       />
-      <section className="bg-cream py-24">
+      <section className="bg-muted py-24">
         <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.4fr]">
           <div className="space-y-4">
             {details.map((d, i) => (
               <Reveal key={d.label} delay={i * 0.06}>
-                <div className="flex gap-5 rounded-2xl bg-white p-6">
+                <div className="flex gap-5 rounded-2xl bg-surface p-6">
                   <span className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl ${i % 2 ? 'bg-brand-olive/15 text-brand-olive' : 'bg-brand-orange/15 text-brand-orange'}`}>
                     <d.icon size={22} />
                   </span>
                   <div>
-                    <div className="text-xs font-semibold uppercase tracking-widest text-ink/50">{d.label}</div>
+                    <div className="text-xs font-semibold uppercase tracking-widest text-fg/50">{d.label}</div>
                     {d.href ? (
                       <a href={d.href} className="mt-1 block font-medium hover:text-brand-orange">{d.value}</a>
                     ) : (
@@ -58,7 +58,7 @@ export default function ContactPage({ searchParams }: { searchParams: { topic?: 
         <iframe
           title="Technology Abreast office — Birdi Complex, Mombasa Road, Nairobi"
           src="https://www.google.com/maps?q=Birdi+Complex+Mombasa+Road+Nairobi&output=embed"
-          className="h-full w-full border-0 grayscale-[60%]"
+          className="h-full w-full border-0 grayscale-[60%] dark:invert-[.9] dark:hue-rotate-180"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
         />

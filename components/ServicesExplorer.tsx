@@ -20,7 +20,7 @@ export default function ServicesExplorer() {
             key={f}
             onClick={() => setFilter(f)}
             className={`rounded-full px-6 py-2.5 text-sm font-semibold transition-all ${
-              filter === f ? 'bg-ink text-white' : 'bg-white text-ink/70 hover:text-ink'
+              filter === f ? 'bg-ink text-white' : 'bg-surface text-fg/70 hover:text-fg'
             }`}
           >
             {f === 'All' ? 'All' : `${f}s`}
@@ -41,15 +41,15 @@ export default function ServicesExplorer() {
             >
               <Link
                 href={`/services/${s.slug}`}
-                className="card-hover group flex h-full gap-6 rounded-3xl bg-white p-7"
+                className="card-hover group flex h-full gap-6 rounded-3xl bg-surface p-7"
               >
                 <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-ink text-brand-amber transition-colors group-hover:bg-brand-orange group-hover:text-white">
                   <ServiceIcon name={s.icon} className="h-7 w-7" />
                 </span>
                 <span className="flex-1">
                   <span className="text-xs font-semibold uppercase tracking-widest text-brand-olive">{s.kind}</span>
-                  <span className="mt-1 block text-xl font-bold text-ink">{s.title}</span>
-                  <span className="mt-2 block leading-relaxed text-ink/60">{s.summary}</span>
+                  <span className="mt-1 block text-xl font-bold text-fg">{s.title}</span>
+                  <span className="mt-2 block leading-relaxed text-fg/60">{s.summary}</span>
                   <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-brand-orange">
                     Details <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />
                   </span>

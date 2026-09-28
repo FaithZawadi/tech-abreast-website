@@ -26,13 +26,13 @@ export default function IndustriesPage() {
       />
 
       {/* Jump bar */}
-      <nav className="sticky top-20 z-30 border-b border-ink/5 bg-white/95 backdrop-blur" aria-label="Industries">
+      <nav className="sticky top-20 z-30 border-b border-fg/5 bg-surface/95 backdrop-blur" aria-label="Industries">
         <div className="container-x flex gap-2 overflow-x-auto py-3">
           {industries.map((ind) => (
             <a
               key={ind.slug}
               href={`#${ind.slug}`}
-              className="whitespace-nowrap rounded-full border border-ink/10 px-4 py-2 text-xs font-semibold text-ink/70 transition-colors hover:border-brand-orange hover:text-brand-orange"
+              className="whitespace-nowrap rounded-full border border-fg/10 px-4 py-2 text-xs font-semibold text-fg/70 transition-colors hover:border-brand-orange hover:text-brand-orange"
             >
               {ind.title}
             </a>
@@ -46,7 +46,7 @@ export default function IndustriesPage() {
             <Reveal key={ind.slug}>
               <article
                 id={ind.slug}
-                className={`group grid scroll-mt-40 overflow-hidden rounded-3xl bg-cream ${i % 2 ? 'lg:grid-cols-[3fr_2fr]' : 'lg:grid-cols-[2fr_3fr]'}`}
+                className={`group grid scroll-mt-40 overflow-hidden rounded-3xl bg-muted ${i % 2 ? 'lg:grid-cols-[3fr_2fr]' : 'lg:grid-cols-[2fr_3fr]'}`}
               >
                 <div className={`relative min-h-[280px] overflow-hidden ${i % 2 ? 'lg:order-2' : ''}`}>
                   <Image
@@ -70,7 +70,7 @@ export default function IndustriesPage() {
                       <h3 className="text-xs font-bold uppercase tracking-widest text-brand-orange">The challenge</h3>
                       <ul className="mt-4 space-y-3">
                         {ind.challenges.map((c) => (
-                          <li key={c} className="flex gap-3 text-sm leading-relaxed text-ink/70">
+                          <li key={c} className="flex gap-3 text-sm leading-relaxed text-fg/70">
                             <AlertTriangle size={16} className="mt-0.5 shrink-0 text-brand-orange" /> {c}
                           </li>
                         ))}
@@ -80,7 +80,7 @@ export default function IndustriesPage() {
                       <h3 className="text-xs font-bold uppercase tracking-widest text-brand-olive">How we help</h3>
                       <ul className="mt-4 space-y-3">
                         {ind.solutions.map((s) => (
-                          <li key={s} className="flex gap-3 text-sm leading-relaxed text-ink/80">
+                          <li key={s} className="flex gap-3 text-sm leading-relaxed text-fg/80">
                             <CheckCircle2 size={16} className="mt-0.5 shrink-0 text-brand-olive" /> {s}
                           </li>
                         ))}
@@ -88,14 +88,14 @@ export default function IndustriesPage() {
                     </div>
                   </div>
 
-                  <div className="mt-8 border-t border-ink/10 pt-6">
-                    <h3 className="text-xs font-bold uppercase tracking-widest text-ink/50">Related services</h3>
+                  <div className="mt-8 border-t border-fg/10 pt-6">
+                    <h3 className="text-xs font-bold uppercase tracking-widest text-fg/50">Related services</h3>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {ind.services.map((slug) => (
                         <Link
                           key={slug}
                           href={`/services/${slug}`}
-                          className="rounded-full bg-white px-4 py-2 text-xs font-semibold text-ink/75 shadow-sm transition-colors hover:bg-ink hover:text-white"
+                          className="rounded-full bg-surface px-4 py-2 text-xs font-semibold text-fg/75 shadow-sm transition-colors hover:bg-ink hover:text-white"
                         >
                           {serviceTitle(slug)}
                         </Link>

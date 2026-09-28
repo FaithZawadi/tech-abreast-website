@@ -4,6 +4,9 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import JsonLd from '@/components/JsonLd'
+import FloatingActions from '@/components/FloatingActions'
+import Providers from '@/components/Providers'
+import { themeScript } from '@/lib/theme'
 import { company } from '@/lib/content'
 import { defaultDescription, keywords, organizationLd, siteUrl, websiteLd } from '@/lib/seo'
 
@@ -58,17 +61,27 @@ export const metadata: Metadata = {
 }
 
 export const viewport: Viewport = {
-  themeColor: '#16150F',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+    { media: '(prefers-color-scheme: dark)', color: '#16150F' },
+  ],
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={poppins.variable}>
+    <html lang="en" className={poppins.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body>
+        <a href="#main" className="skip-link">Skip to content</a>
         <JsonLd data={[organizationLd, websiteLd]} />
-        <Header />
-        <main>{children}</main>
-        <Footer />
+        <Providers>
+          <Header />
+          <main id="main">{children}</main>
+          <Footer />
+          <FloatingActions />
+        </Providers>
       </body>
     </html>
   )

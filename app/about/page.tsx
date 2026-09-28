@@ -25,7 +25,7 @@ export default function AboutPage() {
         <div className="container-x grid gap-16 lg:grid-cols-2">
           <div>
             <SectionHeading eyebrow="Our story" title="Solving ICT challenges, from the ground up" />
-            <Reveal delay={0.1} className="mt-8 space-y-5 leading-relaxed text-ink/70">
+            <Reveal delay={0.1} className="mt-8 space-y-5 leading-relaxed text-fg/70">
               <p>
                 With diversified and distributed personnel capabilities across ICT fields, we offer customised solutions
                 to every client we serve — from formulating and leading ICT strategy in line with policies, processes and
@@ -76,12 +76,12 @@ export default function AboutPage() {
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
             {values.map((v, i) => (
               <Reveal key={v.title} delay={i * 0.07}>
-                <div className="card-hover group h-full rounded-3xl border border-ink/10 p-7 text-center">
+                <div className="card-hover group h-full rounded-3xl border border-fg/10 p-7 text-center">
                   <div className="bg-wing mx-auto flex h-14 w-14 items-center justify-center rounded-full text-lg font-bold text-ink">
                     {v.title[0]}
                   </div>
                   <h3 className="mt-5 text-lg font-bold">{v.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-ink/60">{v.text}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-fg/60">{v.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -89,15 +89,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-cream py-24">
+      <section className="bg-muted py-24">
         <div className="container-x grid gap-12 lg:grid-cols-2">
           <SectionHeading eyebrow="Why choose us" title="Global experience, local understanding" />
           <div className="grid gap-4">
             {whyUs.map((w, i) => (
               <Reveal key={w} delay={i * 0.07}>
-                <div className="flex items-center gap-5 rounded-2xl bg-white p-6">
+                <div className="flex items-center gap-5 rounded-2xl bg-surface p-6">
                   <span className="text-3xl font-extrabold text-wing">0{i + 1}</span>
-                  <span className="font-medium text-ink/80">{w}</span>
+                  <span className="font-medium text-fg/80">{w}</span>
                 </div>
               </Reveal>
             ))}

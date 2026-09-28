@@ -30,7 +30,7 @@ export default function ApproachGrid() {
             className={`rounded-2xl border p-5 text-left transition-all duration-300 ${
               active === i
                 ? 'border-transparent bg-wing text-ink shadow-xl'
-                : 'border-ink/10 bg-white text-ink hover:border-brand-orange/40'
+                : 'border-fg/10 bg-surface text-fg hover:border-brand-orange/40'
             }`}
           >
             <span className={`text-xs font-bold ${active === i ? 'text-ink/60' : 'text-brand-orange'}`}>

@@ -15,18 +15,44 @@
   --ink-2: #1f1d16;
   --cream: #f7f5ef;
   --wing: linear-gradient(90deg, var(--orange) 0%, var(--amber) 45%, var(--lime) 70%, var(--olive) 100%);
+
+  /* Theme tokens as "R G B" so Tailwind can apply opacity (text-fg/60 etc.) */
+  --fg: 22 21 15;
+  --surface: 255 255 255;
+  --muted: 247 245 239;
+  --page: 255 255 255;
+  color-scheme: light;
+}
+
+.dark {
+  --fg: 238 236 228;
+  --surface: 33 31 25;
+  --muted: 25 24 19;
+  --page: 18 17 13;
+  color-scheme: dark;
 }
 
 html { scroll-behavior: smooth; }
 body {
   font-family: var(--font-poppins), 'Poppins', system-ui, sans-serif;
-  background: #ffffff;
-  color: var(--ink);
+  background: rgb(var(--page));
+  color: rgb(var(--fg));
+  transition: background-color .3s ease, color .3s ease;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 ::selection { background: rgba(242, 101, 34, 0.25); }
+
+/* Clear keyboard focus, invisible for mouse users */
+:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; border-radius: 6px; }
+
+.skip-link {
+  position: fixed; left: 16px; top: -60px; z-index: 100;
+  background: var(--orange); color: #fff; padding: 10px 18px; border-radius: 999px;
+  font-weight: 600; font-size: 14px; transition: top .2s;
+}
+.skip-link:focus { top: 16px; }
 
 @layer components {
   .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10; }
@@ -63,7 +89,7 @@ body {
     @apply btn border border-white/30 text-white hover:border-white hover:bg-white/10;
   }
   .btn-outline {
-    @apply btn border border-ink/20 text-ink hover:border-brand-orange hover:text-brand-orange;
+    @apply btn border border-fg/20 text-fg hover:border-brand-orange hover:text-brand-orange;
   }
 
   .card-hover { @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl; }

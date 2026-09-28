@@ -13,10 +13,10 @@ export default function Logo({ dark = false }: { dark?: boolean }) {
         className="h-9 w-auto transition-transform duration-500 group-hover:scale-110"
       />
       <span className="leading-none">
-        <span className={`block text-[15px] font-bold tracking-[0.12em] ${dark ? 'text-ink' : 'text-white'}`}>
+        <span className={`block text-[15px] font-bold tracking-[0.12em] ${dark ? 'text-fg' : 'text-white'}`}>
           TECHNOLOGY <span className="text-brand-orange">ABREAST</span>
         </span>
-        <span className={`mt-1 block text-[10px] tracking-wide ${dark ? 'text-ink/60' : 'text-white/60'}`}>
+        <span className={`mt-1 block text-[10px] tracking-wide ${dark ? 'text-fg/60' : 'text-white/60'}`}>
           Passion and Expertise Combined
         </span>
       </span>

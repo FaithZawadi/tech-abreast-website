@@ -39,7 +39,7 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
   }
 
   const field =
-    'w-full rounded-xl border border-ink/10 bg-cream px-4 py-3.5 text-sm outline-none transition focus:border-brand-orange focus:bg-white focus:ring-4 focus:ring-brand-orange/10'
+    'w-full rounded-xl border border-fg/10 bg-muted px-4 py-3.5 text-sm outline-none transition focus:border-brand-orange focus:bg-surface focus:ring-4 focus:ring-brand-orange/10'
 
   return (
     <AnimatePresence mode="wait">
@@ -48,11 +48,11 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
           key="sent"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="flex flex-col items-center rounded-3xl bg-white p-12 text-center shadow-xl"
+          className="flex flex-col items-center rounded-3xl bg-surface p-12 text-center shadow-xl"
         >
           <CheckCircle2 className="h-16 w-16 text-brand-olive" />
           <h3 className="mt-6 text-2xl font-bold">Thank you — message received.</h3>
-          <p className="mt-3 text-ink/60">A consultant will get back to you within one business day.</p>
+          <p className="mt-3 text-fg/60">A consultant will get back to you within one business day.</p>
           <button onClick={() => setStatus('idle')} className="btn-outline mt-8">Send another message</button>
         </motion.div>
       ) : (
@@ -61,7 +61,7 @@ export default function ContactForm({ initialTopic }: { initialTopic?: string })
           onSubmit={onSubmit}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          className="grid gap-5 rounded-3xl bg-white p-8 shadow-xl sm:grid-cols-2 sm:p-10"
+          className="grid gap-5 rounded-3xl bg-surface p-8 shadow-xl sm:grid-cols-2 sm:p-10"
         >
           <label className="text-sm font-medium">
             Full name *

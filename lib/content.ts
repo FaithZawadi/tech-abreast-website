@@ -11,6 +11,8 @@ export const company = {
   email: 'info@tech-abreast.com',
   phone: '0722 586 313',
   phoneIntl: '+254722586313',
+  // WhatsApp number in international format, digits only
+  whatsapp: '254722586313',
   postal: 'P.O. Box 55496 – 00200, Nairobi, Kenya',
   physical: 'Birdi Complex, 1st Floor, Mombasa Road, Nairobi',
 }
