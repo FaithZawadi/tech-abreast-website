@@ -49,11 +49,11 @@ export function SectionHeading({
     <Reveal className={`max-w-3xl ${center ? 'mx-auto text-center' : ''}`}>
       <span className={`eyebrow ${light ? 'text-brand-lime' : 'text-brand-olive'}`}>{eyebrow}</span>
       <h2
-        className={`mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl ${light ? 'text-white' : 'text-ink'}`}
+        className={`mt-4 text-3xl font-bold leading-tight sm:text-4xl lg:text-5xl ${light ? 'text-white' : 'text-fg'}`}
       >
         {title}
       </h2>
-      {text && <p className={`mt-5 text-base leading-relaxed sm:text-lg ${light ? 'text-white/70' : 'text-ink/65'}`}>{text}</p>}
+      {text && <p className={`mt-5 text-base leading-relaxed sm:text-lg ${light ? 'text-white/70' : 'text-fg/65'}`}>{text}</p>}
     </Reveal>
   )
 }
@@ -97,7 +97,7 @@ export function ArrowLink({ href, children, light = false }: { href: string; chi
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center gap-2 text-sm font-semibold ${light ? 'text-white' : 'text-ink'} hover:text-brand-orange`}
+      className={`group inline-flex items-center gap-2 text-sm font-semibold ${light ? 'text-white' : 'text-fg'} hover:text-brand-orange`}
     >
       {children}
       <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
@@ -113,7 +113,7 @@ export function Marquee({ items }: { items: string[] }) {
         {row.map((t, i) => (
           <span
             key={i}
-            className="whitespace-nowrap rounded-full border border-ink/10 bg-white px-6 py-3 text-sm font-medium text-ink/70 shadow-sm"
+            className="whitespace-nowrap rounded-full border border-fg/10 bg-surface px-6 py-3 text-sm font-medium text-fg/70 shadow-sm"
           >
             <span className={`mr-2 inline-block h-2 w-2 rounded-full ${i % 2 ? 'bg-brand-olive' : 'bg-brand-orange'}`} />
             {t}

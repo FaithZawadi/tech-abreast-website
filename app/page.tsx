@@ -18,13 +18,13 @@ export default function Home() {
       {/* Stats strip */}
       <section id="intro" className="relative z-10 -mt-16">
         <div className="container-x">
-          <div className="grid grid-cols-2 overflow-hidden rounded-3xl bg-white shadow-2xl shadow-black/10 lg:grid-cols-4">
+          <div className="grid grid-cols-2 overflow-hidden rounded-3xl bg-surface shadow-2xl shadow-black/10 lg:grid-cols-4">
             {stats.map((s, i) => (
-              <Reveal key={s.label} delay={i * 0.08} className="border-ink/5 p-8 text-center [&:not(:last-child)]:border-r">
+              <Reveal key={s.label} delay={i * 0.08} className="border-fg/5 p-8 text-center [&:not(:last-child)]:border-r">
                 <div className={`text-4xl font-extrabold sm:text-5xl ${i % 2 ? 'text-brand-olive' : 'text-brand-orange'}`}>
                   <Counter to={s.value} suffix={s.suffix} />
                 </div>
-                <div className="mt-2 text-xs font-medium uppercase tracking-widest text-ink/55">{s.label}</div>
+                <div className="mt-2 text-xs font-medium uppercase tracking-widest text-fg/55">{s.label}</div>
               </Reveal>
             ))}
           </div>
@@ -54,7 +54,7 @@ export default function Home() {
             <Reveal delay={0.1}>
               <ul className="mt-8 space-y-4">
                 {whyUs.map((w) => (
-                  <li key={w} className="flex gap-3 text-ink/80">
+                  <li key={w} className="flex gap-3 text-fg/80">
                     <CheckCircle2 className="mt-0.5 shrink-0 text-brand-olive" size={20} /> {w}
                   </li>
                 ))}
@@ -68,7 +68,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="bg-cream py-24 lg:py-32">
+      <section className="bg-muted py-24 lg:py-32">
         <div className="container-x">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <SectionHeading
@@ -83,16 +83,16 @@ export default function Home() {
               <Reveal key={s.slug} delay={(i % 3) * 0.08}>
                 <Link
                   href={`/services/${s.slug}`}
-                  className="card-hover group relative flex h-full flex-col overflow-hidden rounded-3xl bg-white p-8"
+                  className="card-hover group relative flex h-full flex-col overflow-hidden rounded-3xl bg-surface p-8"
                 >
-                  <span className="absolute right-6 top-5 text-6xl font-extrabold text-ink/[0.04] transition-colors group-hover:text-brand-orange/10">
+                  <span className="absolute right-6 top-5 text-6xl font-extrabold text-fg/[0.04] transition-colors group-hover:text-brand-orange/10">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <span className="flex h-14 w-14 items-center justify-center rounded-2xl bg-ink text-brand-amber transition-colors duration-300 group-hover:bg-brand-orange group-hover:text-white">
                     <ServiceIcon name={s.icon} className="h-7 w-7" />
                   </span>
-                  <h3 className="mt-6 text-xl font-bold text-ink">{s.title}</h3>
-                  <p className="mt-3 flex-1 leading-relaxed text-ink/60">{s.summary}</p>
+                  <h3 className="mt-6 text-xl font-bold text-fg">{s.title}</h3>
+                  <p className="mt-3 flex-1 leading-relaxed text-fg/60">{s.summary}</p>
                   <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-orange">
                     Learn more <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
                   </span>
@@ -150,7 +150,7 @@ export default function Home() {
       </section>
 
       {/* Industries */}
-      <section className="bg-cream py-24 lg:py-32">
+      <section className="bg-muted py-24 lg:py-32">
         <div className="container-x">
           <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
             <SectionHeading eyebrow="Industries" title="Sector know-how where it counts" />

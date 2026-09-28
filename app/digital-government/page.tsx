@@ -5,19 +5,44 @@ import EALayers from '@/components/illustrations/EALayers'
 import InteropHub from '@/components/illustrations/InteropHub'
 import PhaseTimeline from '@/components/PhaseTimeline'
 import { CtaBand, PageHero, Reveal, SectionHeading } from '@/components/ui'
-import { assignments, eaDeliverables, eaObjectives, eaTeam, eaToolkit } from '@/lib/content'
+import JsonLd from '@/components/JsonLd'
+import { assignments, eaDeliverables, eaFaqs, eaObjectives, eaTeam, eaToolkit } from '@/lib/content'
+import { breadcrumbLd, pageMeta, serviceLd } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Enterprise Architecture & Digital Government',
+export const metadata: Metadata = pageMeta({
+  title: 'Government Enterprise Architecture & Digital Government',
   description:
-    'Government Enterprise Architecture Frameworks (GEAF), interoperability, digitalisation roadmaps and capacity building — TOGAF and Zachman aligned.',
-}
+    'TOGAF- and Zachman-aligned Government Enterprise Architecture Frameworks (GEAF), interoperability standards, e-government roadmaps and capacity building for public institutions.',
+  path: '/digital-government',
+})
 
 const objectiveIcons = [Accessibility, Users, ScrollText, Network, Lock]
 
 export default function DigitalGovernmentPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          serviceLd({
+            name: 'Government Enterprise Architecture & Digital Government',
+            description: 'Government Enterprise Architecture Frameworks, interoperability standards, digitalisation roadmaps and capacity building.',
+            path: '/digital-government',
+          }),
+          breadcrumbLd([
+            { name: 'Home', path: '/' },
+            { name: 'Digital Government', path: '/digital-government' },
+          ]),
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: eaFaqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]}
+      />
       <PageHero
         eyebrow="Enterprise architecture · Digital government"
         title={<>One architecture. <span className="text-wing">Connected government.</span></>}
@@ -43,9 +68,9 @@ export default function DigitalGovernmentPage() {
             />
             <Reveal delay={0.1} className="mt-8 grid gap-3 sm:grid-cols-3">
               {['Administrative service modernisation', 'Digital platforms & shared services', 'Common service-delivery model'].map((t, i) => (
-                <div key={t} className="rounded-2xl bg-cream p-5">
+                <div key={t} className="rounded-2xl bg-muted p-5">
                   <span className="text-2xl font-extrabold text-wing">0{i + 1}</span>
-                  <p className="mt-2 text-sm font-semibold text-ink/80">{t}</p>
+                  <p className="mt-2 text-sm font-semibold text-fg/80">{t}</p>
                 </div>
               ))}
             </Reveal>
@@ -57,7 +82,7 @@ export default function DigitalGovernmentPage() {
       </section>
 
       {/* Objectives */}
-      <section className="bg-cream py-24">
+      <section className="bg-muted py-24">
         <div className="container-x">
           <SectionHeading
             center
@@ -69,12 +94,12 @@ export default function DigitalGovernmentPage() {
               const Icon = objectiveIcons[i]
               return (
                 <Reveal key={o.title} delay={i * 0.07}>
-                  <div className="card-hover h-full rounded-3xl bg-white p-7">
+                  <div className="card-hover h-full rounded-3xl bg-surface p-7">
                     <span className={`flex h-12 w-12 items-center justify-center rounded-xl ${i % 2 ? 'bg-brand-olive/15 text-brand-olive' : 'bg-brand-orange/15 text-brand-orange'}`}>
                       <Icon size={24} strokeWidth={1.7} />
                     </span>
                     <h3 className="mt-5 font-bold">{o.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink/60">{o.text}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-fg/60">{o.text}</p>
                   </div>
                 </Reveal>
               )
@@ -113,9 +138,9 @@ export default function DigitalGovernmentPage() {
             />
             <Reveal delay={0.1} className="mt-8 grid gap-4 sm:grid-cols-2">
               {eaToolkit.map((g) => (
-                <div key={g.group} className="rounded-2xl border border-ink/10 p-5">
+                <div key={g.group} className="rounded-2xl border border-fg/10 p-5">
                   <h4 className="text-sm font-bold uppercase tracking-widest text-brand-orange">{g.group}</h4>
-                  <ul className="mt-3 space-y-1.5 text-sm text-ink/70">
+                  <ul className="mt-3 space-y-1.5 text-sm text-fg/70">
                     {g.items.map((it) => <li key={it}>{it}</li>)}
                   </ul>
                 </div>
@@ -126,7 +151,7 @@ export default function DigitalGovernmentPage() {
       </section>
 
       {/* Deliverables */}
-      <section className="bg-cream py-24">
+      <section className="bg-muted py-24">
         <div className="container-x grid gap-14 lg:grid-cols-2">
           <SectionHeading
             eyebrow="Deliverables"
@@ -136,9 +161,9 @@ export default function DigitalGovernmentPage() {
           <div className="space-y-3">
             {eaDeliverables.map((d, i) => (
               <Reveal key={d} delay={i * 0.05}>
-                <div className="flex items-center gap-4 rounded-2xl bg-white p-5">
+                <div className="flex items-center gap-4 rounded-2xl bg-surface p-5">
                   <FileCheck2 className={`shrink-0 ${i % 2 ? 'text-brand-olive' : 'text-brand-orange'}`} size={22} />
-                  <span className="font-medium text-ink/80">{d}</span>
+                  <span className="font-medium text-fg/80">{d}</span>
                 </div>
               </Reveal>
             ))}
@@ -180,7 +205,7 @@ export default function DigitalGovernmentPage() {
       </section>
 
       {/* Experience */}
-      <section className="bg-cream py-24">
+      <section className="bg-muted py-24">
         <div className="container-x">
           <SectionHeading
             eyebrow="Relevant experience"
@@ -191,13 +216,13 @@ export default function DigitalGovernmentPage() {
             <div className="mt-12 grid gap-5 md:grid-cols-2">
               {assignments.map((a) => (
                 <Reveal key={a.client + a.period}>
-                  <div className="h-full rounded-3xl bg-white p-7">
+                  <div className="h-full rounded-3xl bg-surface p-7">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                       <h3 className="text-lg font-bold">{a.client}</h3>
                       <span className="text-xs font-semibold text-brand-olive">{a.period}</span>
                     </div>
-                    <p className="mt-1 flex items-center gap-1 text-xs text-ink/50"><MapPin size={12} /> {a.location}</p>
-                    <p className="mt-4 text-sm leading-relaxed text-ink/70">{a.scope}</p>
+                    <p className="mt-1 flex items-center gap-1 text-xs text-fg/50"><MapPin size={12} /> {a.location}</p>
+                    <p className="mt-4 text-sm leading-relaxed text-fg/70">{a.scope}</p>
                     <p className="mt-4 text-sm font-semibold text-brand-orange">Contract value: {a.value}</p>
                   </div>
                 </Reveal>
@@ -211,10 +236,10 @@ export default function DigitalGovernmentPage() {
                 { t: 'Audits & technical specifications', d: 'Independent ICT technical audits and validation of specifications by consultants with 10+ years’ experience.' },
               ].map((c, i) => (
                 <Reveal key={c.t} delay={i * 0.08}>
-                  <div className="h-full rounded-3xl bg-white p-7">
+                  <div className="h-full rounded-3xl bg-surface p-7">
                     <span className="text-3xl font-extrabold text-wing">0{i + 1}</span>
                     <h3 className="mt-3 text-lg font-bold">{c.t}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-ink/60">{c.d}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-fg/60">{c.d}</p>
                   </div>
                 </Reveal>
               ))}
@@ -241,13 +266,37 @@ export default function DigitalGovernmentPage() {
             { t: 'GBV / SEA / SH safeguards', d: 'Robust prevention and response measures, upholding the highest standards of ethical behaviour, protection and accountability.' },
           ].map((c, i) => (
             <Reveal key={c.t} delay={i * 0.08}>
-              <div className="h-full rounded-3xl border border-ink/10 p-8">
+              <div className="h-full rounded-3xl border border-fg/10 p-8">
                 <div className="bg-wing h-1 w-12 rounded-full" />
                 <h3 className="mt-5 text-lg font-bold">{c.t}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink/60">{c.d}</p>
+                <p className="mt-2 text-sm leading-relaxed text-fg/60">{c.d}</p>
               </div>
             </Reveal>
           ))}
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="bg-muted py-24">
+        <div className="container-x grid gap-12 lg:grid-cols-[1fr_1.5fr]">
+          <SectionHeading
+            eyebrow="FAQ"
+            title="Enterprise architecture, answered"
+            text="Common questions from ministries, agencies and development partners."
+          />
+          <div className="space-y-3">
+            {eaFaqs.map((f) => (
+              <details key={f.q} className="group rounded-2xl bg-surface p-6 open:shadow-lg">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-fg [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-orange/10 text-lg text-brand-orange transition-transform group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-4 leading-relaxed text-fg/70">{f.a}</p>
+              </details>
+            ))}
+          </div>
         </div>
       </section>
 

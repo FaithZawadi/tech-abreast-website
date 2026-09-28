@@ -11,6 +11,8 @@ export const company = {
   email: 'info@tech-abreast.com',
   phone: '0722 586 313',
   phoneIntl: '+254722586313',
+  // WhatsApp number in international format, digits only
+  whatsapp: '254722586313',
   postal: 'P.O. Box 55496 – 00200, Nairobi, Kenya',
   physical: 'Birdi Complex, 1st Floor, Mombasa Road, Nairobi',
 }
@@ -553,3 +555,30 @@ export type Assignment = {
   period: string
 }
 export const assignments: Assignment[] = []
+
+export const eaFaqs = [
+  {
+    q: 'What is a Government Enterprise Architecture Framework (GEAF)?',
+    a: 'A GEAF is a shared blueprint for how government delivers digital services. It sets common principles, standards and reference models for business processes, data, applications, technology and security, so ministries and agencies can build services that work together instead of in silos.',
+  },
+  {
+    q: 'Which frameworks and methods do you use?',
+    a: 'We align our work to TOGAF® ADM and the Zachman Framework, model with ArchiMate®, UML and BPMN, and design integration using service-oriented and event-driven architecture, API management and microservices. Service management and security follow ITIL®/ISO 20000 and ISO/IEC 27001 practice.',
+  },
+  {
+    q: 'How long does a GEA assignment take?',
+    a: 'A typical assignment runs for about six months across six phases: inception, current-state and gap analysis, target architecture, stakeholder validation, roadmap and specifications, and capacity building — with deliverables tied to each milestone.',
+  },
+  {
+    q: 'What will our institution receive at the end?',
+    a: 'An approved enterprise architecture framework with technical specifications, a digitalisation approach and implementation plan, an interoperability roadmap with capital, operating and human-resource estimates, a draft RFP for implementation, and training materials and user manuals — all owned by the client.',
+  },
+  {
+    q: 'Do you support institutions after the framework is adopted?',
+    a: 'Yes. We provide structured capacity support: training manuals, a helpdesk and mentorship mechanism, quarterly technical training for public-sector developers, and advisory briefing notes for management.',
+  },
+  {
+    q: 'Can your team work on-site with the client?',
+    a: 'Yes. Our core team is based at the client’s duty station for the duration of the assignment and travels for regional stakeholder consultations and system assessments, following the client’s travel and security protocols.',
+  },
+]

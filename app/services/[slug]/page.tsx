@@ -3,7 +3,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ArrowRight } from 'lucide-react'
 import { CtaBand, PageHero, Reveal, ServiceIcon } from '@/components/ui'
+import JsonLd from '@/components/JsonLd'
 import { services } from '@/lib/content'
+import { breadcrumbLd, pageMeta, serviceLd } from '@/lib/seo'
 
 export function generateStaticParams() {
   return services.map((s) => ({ slug: s.slug }))
@@ -11,7 +13,12 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
   const s = services.find((x) => x.slug === params.slug)
-  return s ? { title: s.title, description: s.summary } : {}
+  if (!s) return {}
+  return pageMeta({
+    title: s.title,
+    description: `${s.summary} ${s.kind === 'Service' ? 'ICT services' : 'ICT solutions'} from Technology Abreast, Nairobi, Kenya.`,
+    path: `/services/${s.slug}`,
+  })
 }
 
 export default function ServicePage({ params }: { params: { slug: string } }) {
@@ -23,6 +30,16 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
 
   return (
     <>
+      <JsonLd
+        data={[
+          serviceLd({ name: s.title, description: s.intro, path: `/services/${s.slug}` }),
+          breadcrumbLd([
+            { name: 'Home', path: '/' },
+            { name: 'Services', path: '/services' },
+            { name: s.title, path: `/services/${s.slug}` },
+          ]),
+        ]}
+      />
       <PageHero eyebrow={s.kind} title={s.title} text={s.intro}>
         <div className="mt-10 flex flex-wrap gap-4">
           <Link href={`/contact?topic=${s.slug}`} className="btn-primary">
@@ -41,10 +58,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
           <div className="grid gap-5 sm:grid-cols-2">
             {s.items.map((it, i) => (
               <Reveal key={it.title} delay={(i % 2) * 0.08}>
-                <div className="card-hover h-full rounded-3xl border border-ink/10 p-7">
+                <div className="card-hover h-full rounded-3xl border border-fg/10 p-7">
                   <span className="text-sm font-bold text-brand-orange">{String(i + 1).padStart(2, '0')}</span>
                   <h3 className="mt-3 text-lg font-bold">{it.title}</h3>
-                  <p className="mt-2 leading-relaxed text-ink/60">{it.text}</p>
+                  <p className="mt-2 leading-relaxed text-fg/60">{it.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -60,12 +77,12 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
                 Next: {next.title} <ArrowRight size={15} />
               </Link>
             </div>
-            <div className="rounded-3xl bg-cream p-7">
-              <h4 className="text-sm font-semibold uppercase tracking-widest text-ink/60">Other services</h4>
+            <div className="rounded-3xl bg-muted p-7">
+              <h4 className="text-sm font-semibold uppercase tracking-widest text-fg/60">Other services</h4>
               <ul className="mt-4 space-y-3">
                 {others.map((o) => (
                   <li key={o.slug}>
-                    <Link href={`/services/${o.slug}`} className="text-sm font-medium text-ink/80 hover:text-brand-orange">
+                    <Link href={`/services/${o.slug}`} className="text-sm font-medium text-fg/80 hover:text-brand-orange">
                       {o.title}
                     </Link>
                   </li>
