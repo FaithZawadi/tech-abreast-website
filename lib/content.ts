@@ -586,6 +586,37 @@ export const eaTeam = [
   },
 ]
 
+// Engagement organogram: how a digital-government assignment is governed and staffed.
+// Key experts reuse eaTeam roles; the structure scales up or down with the ToR.
+export const eaOrganogram = {
+  client: {
+    title: 'Client Steering Committee',
+    text: 'Sets direction, approves deliverables. Day-to-day contact through the client’s project coordinator or PIU.',
+  },
+  director: {
+    title: 'Project Director',
+    text: 'Firm-level quality assurance, backstopping and contract oversight.',
+  },
+  leader: {
+    title: 'Team Leader',
+    text: 'Single point of accountability to the client for scope, schedule and quality.',
+  },
+  partner: {
+    title: 'In-country Partner',
+    text: 'Local JV partner or liaison, where the assignment calls for one: context, logistics, language.',
+  },
+  core: ['Enterprise Architect', 'Integration & Interoperability Specialist', 'Business Process & Service Design Analyst', 'Cybersecurity & Data Protection Specialist'],
+  support: {
+    lead: 'Capacity Building Lead',
+    pool: ['Data & information architect', 'Network & infrastructure specialist', 'ICT legal & policy adviser', 'Change management specialist', 'Cost & procurement specialist'],
+    admin: 'Project administrator',
+  },
+  counterparts: {
+    title: 'Client counterpart team',
+    text: 'Each expert is paired with a named client counterpart, so skills and ownership stay in the institution.',
+  },
+}
+
 // The global and African reference points our work is benchmarked against
 export const eaReferences = [
   {
@@ -636,6 +667,7 @@ export const eaTenderFit = [
   { req: 'Experience with EA frameworks such as TOGAF or Zachman', how: 'Our methodology is built on TOGAF® ADM and Zachman, modelled in ArchiMate®, UML and BPMN.' },
   { req: 'SOA, event-driven architecture and integration expertise', how: 'Interoperability and integration design is a core service: SOA, EDA, API management, microservices and EAI.' },
   { req: 'Qualified key experts (Team Leader, Architect, Integration)', how: 'We field PMP®-, TOGAF®-, ITIL®- and security-certified experts, scaled to the scope of each assignment.' },
+  { req: 'Joint ventures and in-country presence', how: 'We lead or join joint ventures with registered in-country firms, with each partner’s role, experts and staff-months clearly defined in the proposal.' },
   { req: 'Structured stakeholder consultation and validation', how: 'Consultation and validation are a dedicated phase of our method, with every comment tracked to resolution.' },
   { req: 'Technical specifications, costing and procurement documents', how: 'We produce specifications with CAPEX/OPEX and human-resource estimates, plus draft TOR/RFPs for implementation.' },
   { req: 'Capacity building and knowledge transfer', how: 'Training materials, helpdesk/mentorship and regular technical training are built into every engagement.' },
@@ -645,12 +677,18 @@ export const eaTenderFit = [
 // Verified past assignments for tender submissions.
 // Add only real, verifiable engagements (client name & address, scope,
 // value and period) — these render on the Digital Government page.
+// Optional fields follow the World Bank experience-record format.
 export type Assignment = {
   client: string
   location: string
   scope: string
   value: string
   period: string
+  title?: string
+  category?: 'Enterprise architecture' | 'Interoperability & integration' | 'Donor-financed ICT assessment' | 'Digital strategy'
+  financing?: string // e.g. 'World Bank IDA', 'AfDB', 'Government'
+  role?: string // e.g. 'Lead firm', 'JV partner'
+  frameworks?: string[] // e.g. ['TOGAF ADM', 'ArchiMate']
 }
 export const assignments: Assignment[] = []
 

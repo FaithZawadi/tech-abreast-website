@@ -5,6 +5,7 @@ import {
 } from 'lucide-react'
 import EALayers from '@/components/illustrations/EALayers'
 import InteropHub from '@/components/illustrations/InteropHub'
+import Organogram from '@/components/Organogram'
 import PhaseTimeline from '@/components/PhaseTimeline'
 import { CtaBand, PageHero, Reveal, SectionHeading, ServiceIcon } from '@/components/ui'
 import JsonLd from '@/components/JsonLd'
@@ -273,14 +274,19 @@ export default function DigitalGovernmentPage() {
       </section>
 
       {/* Team */}
-      <section className="bg-muted py-24 lg:py-32">
+      <section id="team" className="scroll-mt-20 bg-muted py-24 lg:py-32">
         <div className="container-x">
           <SectionHeading
-            eyebrow="Key experts"
-            title="A senior, multidisciplinary team"
-            text="Our top-heavy delivery model fields senior consultants, not inexperienced staff. The team is scaled to each assignment and presented with full CVs in our proposals."
+            eyebrow="Team & organisation"
+            title="Clear accountability, from steering committee to counterpart"
+            text="Every assignment runs through one Team Leader, backed by firm-level quality assurance, with key experts paired to client staff. The team is scaled to each assignment and presented with full CVs in our proposals."
           />
-          <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-14">
+            <Organogram />
+          </div>
+          <h3 className="mt-20 text-2xl font-bold">Key expert profiles</h3>
+          <p className="mt-2 max-w-2xl text-fg/60">Our top-heavy delivery model fields senior consultants, not inexperienced staff.</p>
+          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {eaTeam.map((t, i) => (
               <Reveal key={t.role} delay={(i % 3) * 0.06}>
                 <div className="card-hover h-full rounded-3xl bg-surface p-7">
@@ -347,9 +353,20 @@ export default function DigitalGovernmentPage() {
                       <h3 className="text-lg font-bold">{a.client}</h3>
                       <span className={`text-xs font-semibold ${accent(i).text}`}>{a.period}</span>
                     </div>
+                    {a.title && <p className="mt-1 font-medium text-fg/80">{a.title}</p>}
                     <p className="mt-1 flex items-center gap-1 text-xs text-fg/50"><MapPin size={12} /> {a.location}</p>
+                    {a.category && (
+                      <span className={`mt-4 inline-block rounded-full px-3 py-1 text-xs font-semibold ${accent(i).soft}`}>{a.category}</span>
+                    )}
                     <p className="mt-4 text-sm leading-relaxed text-fg/70">{a.scope}</p>
-                    <p className={`mt-4 text-sm font-semibold ${accent(i).text}`}>Contract value: {a.value}</p>
+                    {a.frameworks && a.frameworks.length > 0 && (
+                      <p className="mt-3 text-xs text-fg/55">Methods: {a.frameworks.join(' · ')}</p>
+                    )}
+                    <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm">
+                      <span className={`font-semibold ${accent(i).text}`}>Contract value: {a.value}</span>
+                      {a.financing && <span className="text-fg/60">Financing: {a.financing}</span>}
+                      {a.role && <span className="text-fg/60">Role: {a.role}</span>}
+                    </div>
                   </div>
                 </Reveal>
               ))}
